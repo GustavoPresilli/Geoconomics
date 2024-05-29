@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/jpg" href="Imagens/logo_escura_prateada.png" />
 </head>
+
 <body>
     <div class="pagina">
         <div class="header">
             <div class="container">
                 <a href="#inicio">Início</a>
-                <a href="#sobre">Sobre Mim</a>
-                <a href="">Saiba mais</a>
-                <button>Login</button>
+                <a href="#sobre">Saiba mais</a>
+                <a href="#sobreMim">Sobre Mim</a>
+                <button id="login">Login</button>
             </div>
         </div>
         <div class="inicio" id="inicio">
@@ -23,7 +25,7 @@
                     <span>Geo <img src="Imagens/globo_redes.png" alt=""></span>
                     <span>Conomics</span>
                     <p>Gustavo Silva Presilli</p>
-                    <button>Saiba Mais</button>
+                    <button id="saibaMais">Saiba Mais</button>
                 </div>
             </div>
             <div class="globo">
@@ -34,12 +36,98 @@
                     <div class="textoRedondo">
                         <div id="subtitulo">Geography</div>
                         <div id="texto">A geografia não é neutra. Ela traduz as contradições do mundo.</div>
-                        <div id="subtexto">Descubra mais sobre a geografia em nosso site, aqui você poderá notar que geografia não é apenas um mapa.</div>
+                        <div id="subtexto">Descubra mais sobre a geografia em nosso site, aqui você poderá notar que
+                            geografia não é apenas um mapa.</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="sobre" id="sobre"></div>
+    <div class="sobre" id="sobre">
+        <div class="container">
+            <h1>SOBRE O PROJETO</h1>
+            <p>
+                O projeto é dedicado a fornecer informações detalhadas e acessíveis sobre as bandeiras dos países do
+                mundo e
+                suas histórias. Focamos em educar e inspirar nossos visitantes, oferecendo um recurso abrangente e
+                confiável
+                para explorar a geografia, a cultura e os símbolos nacionais de todas as nações.
+                <br>
+                Com um conteúdo rico e visualmente atraente, buscamos aumentar o conhecimento global e promover o
+                respeito
+                pela diversidade cultural. Seja para estudantes, educadores, viajantes ou curiosos, nosso objetivo é ser
+                a
+                principal fonte de informações sobre as bandeiras e os países que elas representam.
+            </p>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="container">
+            <div class="card">
+                <div class="container">
+                    <div class="imagem">
+                        <img src="Imagens/montanha_missao.png" alt="">
+                    </div>
+                    <div class="texto">
+                        <div class="tituloCard">
+                            <h1>Missão</h1>
+                        </div>
+                        <p>
+                            Fornecer informações precisas e acessíveis  sobre os países do mundo e suas bandeiras, promovendo o conhecimento global e o respeito
+                            pela diversidade cultural.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container">
+                    <div class="imagem">
+                        <img src="Imagens/olho_visao.png" alt="">
+                    </div>
+                    <div class="texto">
+                        <div class="tituloCard">
+                            <h1>Visão</h1>
+                        </div>
+                        <p>
+                            Ser o principal recurso online para quem busca aprender sobre os países e suas bandeiras,
+                            criando um mundo mais conectado e informado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container">
+                    <div class="imagem">
+                        <img src="Imagens/balanca_valores.png" alt="">
+                    </div>
+                    <div class="texto">
+                        <div class="tituloCard">
+                            <h1>Valores</h1>
+                        </div>
+                        <p>
+                            Valorizamos a educação com informações confiáveis e detalhadas, garantindo a veracidade do
+                            conteúdo. Priorizando a veracidade dos fatos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sobreMim" id="sobreMim">
+        
+    </div>  
+    <div class="footer">
+
+    </div>
 </body>
+
 </html>
+<script>
+    document.getElementById("login").onclick = function () {
+        window.location = "login.html"
+    }
+
+    document.getElementById("saibaMais").onclick = function () {
+        window.location = "login.html"
+    };
+</script>
