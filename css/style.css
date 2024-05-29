@@ -30,6 +30,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .pagina {
@@ -461,7 +462,8 @@ body {
     font-size: 32px;
 }
 
-.interesseProjeto p, h1 {
+.interesseProjeto p,
+h1 {
     margin-left: 5%;
 }
 
@@ -472,4 +474,16 @@ body {
     width: 80%;
     height: 40%;
     font-size: 40px;
+}
+
+.footer {
+    height: 10vh;
+    width: 100%;
+    background-color: #56757B;
+    /* border-radius: 2vh 2vh 0 0; */
+}
+
+.footer .container {
+    align-items: center;
+    justify-content: space-between;
 }
