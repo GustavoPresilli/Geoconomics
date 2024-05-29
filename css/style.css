@@ -250,7 +250,7 @@ body {
     height: 100%;
     font-size: 35px;
     text-align: justify;
-} 
+}
 
 .cards {
     height: 100vh;
@@ -291,7 +291,7 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-}  
+}
 
 .card .container img {
     height: 80%;
@@ -328,4 +328,77 @@ body {
     height: 100vh;
     width: 100%;
     background-color: #18191A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tituloSobreMim {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'RopaSans';
+    color: #ffff;
+}
+
+.tituloSobreMim h1 {
+    font-size: 80px;
+}
+
+.sobreMim .container {
+    height: 90%;
+    width: 100%;
+}
+
+.caixaFoto {
+    /* border: 2px solid red; */
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.moldeFoto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 80%;
+    border: 2px solid red;
+    position: relative;
+}
+
+.caixaFoto img {
+    width: 65%;
+    height: 70%;
+}
+
+.imagemFundo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.imagemFrente {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 10%;
+    height: 10%;
+    object-fit: contain;
+}
+
+.textoFoto {
+    border: 2px solid blue;
+    width: 30%;
+    height: 100%;
+}
+
+.interesseProjeto {
+    border: 2px solid green;
+    width: 40%;
+    height: 100%;
 }
