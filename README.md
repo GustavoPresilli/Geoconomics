@@ -1,4 +1,4 @@
-## Geoconomics <img height="40px" src="https://github.com/GustavoPresilli/Geoconomics/blob/main/Imagens/logo_escura_prateada.png">
+## Geoconomics <img height="40px" src="https://github.com/GustavoPresilli/Geoconomics/blob/main/img/logo_escura_prateada.png">
 
 <p>Em virtude do problema da carência de tecnologias para o monitoramento da qualidade de uvas e videras de plantações, criamos a <b>GrapeSci</b> um projeto 
   com o fundamento de desenvolver uma aplicação para ajudar o acompanhamento de temperatura e umidade em plantações de uvas</p>

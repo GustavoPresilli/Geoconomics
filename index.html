@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index - Geoconomics</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" type="image/jpg" href="Imagens/logo_escura_prateada.png" />
+    <link rel="shortcut icon" type="image/jpg" href="img/logo_escura_prateada.png" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <div class="inicio" id="inicio">
             <div class="titulo">
                 <div class="container">
-                    <span>Geo <img src="Imagens/globo_redes.png" alt=""></span>
+                    <span>Geo <img src="img/globo_redes.png" alt=""></span>
                     <span>Conomics</span>
                     <p>Gustavo Silva Presilli</p>
                     <button id="saibaMais">Saiba Mais</button>
@@ -31,7 +31,7 @@
             <div class="globo">
                 <div class="container">
                     <div class="bolaImagem">
-                        <img src="Imagens/logo_original_escura.png">
+                        <img src="img/logo_original_escura.png">
                     </div>
                     <div class="textoRedondo">
                         <div id="subtitulo">Geography</div>
@@ -66,7 +66,7 @@
             <div class="card">
                 <div class="container">
                     <div class="imagem">
-                        <img src="Imagens/montanha_missao.png" alt="">
+                        <img src="img/montanha_missao.png" alt="">
                     </div>
                     <div class="texto">
                         <div class="tituloCard">
@@ -83,7 +83,7 @@
             <div class="card">
                 <div class="container">
                     <div class="imagem">
-                        <img src="Imagens/olho_visao.png" alt="">
+                        <img src="img/olho_visao.png" alt="">
                     </div>
                     <div class="texto">
                         <div class="tituloCard">
@@ -99,7 +99,7 @@
             <div class="card">
                 <div class="container">
                     <div class="imagem">
-                        <img src="Imagens/balanca_valores.png" alt="">
+                        <img src="img/balanca_valores.png" alt="">
                     </div>
                     <div class="texto">
                         <div class="tituloCard">
@@ -114,29 +114,45 @@
             </div>
         </div>
     </div>
-    <div class="sobreMim" id="sobreMim">
-        <div class="tituloSobreMim">
-            <h1>Sobre Mim</h1>
+        <div class="sobreMim" id="sobreMim">
+            <div class="tituloSobreMim">
+                <h1>Sobre Mim</h1>
 
-        </div>
-        <div class="container">
-            <div class="caixaFoto">
-                <div class="moldeFoto">
-                    <img src="Imagens/molde_foto.png" class="imagemFundo">
-                    <img src="Imagens/foto_eu.png" class="imagemFrente">
+            </div>
+            <div class="container">
+                <div class="caixaFoto">
+                    <div class="moldeFoto">
+                        <img src="img/foto_eu.png" class="imagemFrente">
+                        <h1>Gustavo Silva Presilli</h1>
+                    </div>
+                </div>
+                <div class="textoFoto">
+                    <p id="textoFaculdade">ESTUDANTE DE CIÊNCIA DA COMPUTAÇÃO PELA SÃO PAULO TECH SCHOOL</p>
+                    <p id="subtextoSobreMim">18 ANOS DE IDADE</p>
+                    <p id="subtextoSobreMim">FORMAÇÃO EM 2027</p>
+                    <p id="tituloContato">Contato
+                    </p>
+                    <div class="contatos">
+                        <img onclick="gitHub()" src="img/foto_eu.png">
+                        <img onclick="linkedin()" src="img/foto_eu.png">
+                        <img onclick="email()" src="img/foto_eu.png">
+                    </div>
+
+                </div>
+                <div class="interesseProjeto">
+                    <div class="caixaTitulo">
+                        <h1>Interesse sobre o Projeto</h1>
+                    </div>
+                    <div class="caixaTexto">
+                        <p>O projeto tem como objetivo esse tema, pois foi de grande importâmcia de minha vida,
+                            podendo conhecer melhor mundo afora.</p>
+                        </div>
                 </div>
             </div>
-            <div class="textoFoto">
-
-            </div>
-            <div class="interesseProjeto">
-
-            </div>
         </div>
-    </div>
-    <div class="footer">
+        <div class="footer">
 
-    </div>
+        </div>
 </body>
 
 </html>
@@ -148,4 +164,17 @@
     document.getElementById("saibaMais").onclick = function () {
         window.location = "login.html"
     };
+
+    function gitHub() {
+        window.location.href = "https://github.com/GustavoPresilli"
+    };
+
+    function linkedin() {
+        window.location.href = "https://www.linkedin.com/in/gustavo-presilli-248361300/";
+    }
+
+    function email() {
+        window.location.href = "mailto:g_presilli@hotmail.com"
+    };
+
 </script>
