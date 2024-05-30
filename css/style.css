@@ -438,6 +438,16 @@ body {
 .contatos img {
     height: 50%;
     cursor: pointer;
+    transition: 1s;
+}
+
+.contatos img:hover {
+    transition: 1s;
+    filter: opacity(50%);
+}
+
+#gitHub {
+    filter: invert(1);
 }
 
 .interesseProjeto {
@@ -477,13 +487,122 @@ h1 {
 }
 
 .footer {
-    height: 10vh;
+    height: 12vh;
     width: 100%;
-    background-color: #56757B;
     /* border-radius: 2vh 2vh 0 0; */
+    background-color: #18191A;
 }
 
 .footer .container {
+    height: 100%;
+    width: 100%;
+    background-color: #56757B;
     align-items: center;
-    justify-content: space-between;
+    border-radius: 2vh 2vh 0 0;
+    justify-content: space-around;
+    font-family: 'MontSerrat';
+}
+
+.projeto {
+    width: 30%;
+    /* border: 2px solid red; */
+    height: 100%;
+    display: flex;
+    color: #FFFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.projeto h1 {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 5px;
+}
+
+.projeto p {
+    width: 90%;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.site {
+    width: 30%;
+    height: 100%;
+    /* border: 2px solid blue; */
+    display: flex;
+    color: #FFFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.site h1 {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 5px;
+}
+
+.site a {
+    text-decoration: none;
+    color: #FFFF;
+    font-size: 18px;
+}
+
+.ajuda {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    color: #FFFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ajuda h1 {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 5px;
+}
+
+.ajuda p {
+    text-decoration: none;
+    color: #FFFF;
+    font-size: 18px;
+}
+
+.logoFooter {
+    width: 10%;
+    height: 100%;
+    /* border: 2px solid pink; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoFooter img {
+    height: 90%;
+}
+
+.tituloFooter {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    /* border: 2px solid red; */
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.textoFooter {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    /* border: 2px solid blue; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly
 }
