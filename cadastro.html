@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -10,8 +10,8 @@
 </head>
 
 <body>
+    <img class='imagemCasa' onclick="retornar()" src="img/imagem_casa.png">
     <div class="pagina">
-
         <h1 class="titulo">CADASTRO</h1>
         <div class="container">
             <div class="caixaRedLogin">
@@ -20,11 +20,11 @@
                     Para entrar continuar o acesso
                     por favor entre em uma conta já existente.
                 </p>
-                <button>Entrar</button>
+                <button onclick="login()">Entrar</button>
             </div>
             <div class="caixaCadastro">
                 <div class="imagemCadastro">
-                    <img src="img/logo_escura_prateada.png" alt="">
+                    <img class="imagemLogo" src="img/logo_escura_prateada.png">
                 </div>
                 <div class="camposCadastro">
                     <div class="campo">
@@ -70,7 +70,7 @@
                         <input placeholder="Confirme a sua senha" id="input_usuario">
                     </div>
                     <div class="botao">
-                        <!-- <button>Cadastrar</button> -->
+                        <button>Cadastrar</button>
                     </div>
                 </div>
             </div>
@@ -79,3 +79,12 @@
 </body>
 
 </html>
+<script>
+    function retornar(){
+        window.location = "index.html"
+    }
+
+    function login(){
+        window.location = "login.html"
+    }
+</script>
