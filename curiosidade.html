@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curiosidade - Geoconomics</title>
+    <link rel="stylesheet" href="css/curiosidade.css">
+    <link rel="shortcut icon" type="image/jpg" href="img/logo_escura_prateada.png" />
+</head>
+
+<body>
+    <div class="pagina">
+        <div class="header">
+            <div class="container">
+                <div class="usuario">
+                    <img src="img/foto_usuario.png" alt="">
+                    <span>Olá, Usuário</span>
+                </div>
+                <span>Idade: 19 anos</span>
+                <span>Região: América do Sul</span>
+            </div>
+        </div>
+        <div class="inicio">
+            <div class="titulo">
+                <div class="container">
+                    <span>Horário Atual <span id="horarioTitulo">13:00:00</span></span>
+                </div>
+            </div>
+            <div class="caixaContinente">
+                <div class="texto">
+
+                </div>
+                <div class="imagemContinente">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    
+    setInterval(function () {
+        const dataAtual = new Date();
+
+        horarioTitulo.innerHTML = `${dataAtual.toLocaleTimeString()}`
+    }, 1000)
+</script>

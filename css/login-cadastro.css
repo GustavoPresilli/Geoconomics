@@ -141,7 +141,7 @@ body {
 }
 
 .imagemCasa:hover {
-    filter: invert(0.5);
+    filter: invert(0.5) grayscale(0%) brightness(110%);
     transition: 1s;
 }
 
@@ -321,6 +321,7 @@ body {
     font-family: 'Questrial';
     font-weight: 300;
     transition: 2s;
+    cursor: pointer;
 }
 
 .botao button:hover {
