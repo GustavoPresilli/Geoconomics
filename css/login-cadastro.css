@@ -161,16 +161,36 @@ body {
 
 .campo {
     width: 100%;
-    height: 18%;
+    height: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.campo select {
+    width: 23vw;
+    height: 5vh;
+    border-radius: 1vh;
+    font-family: 'Questrial';
+    border: none;
+    background-color: #DDDDDD;
+    padding-left: 3%;
+    font-size: 2vh;
+}
+
+.campo select option {
+    font-family: 'Questrial';
+    border: none;
+    background-color: #DDDDDD;
+    padding-left: 3%;
+    font-size: 2vh;
+    font-weight: 100;
+}
+
 .doisCampos {
     width: 100%;
-    height: 18%;
+    height: 15%;
     /* border: 2px dotted pink; */
     display: flex;
     flex-direction: row;
@@ -292,8 +312,8 @@ body {
 }
 
 .botao button {
-    width: 30%;
-    height: 50%;
+    width: 40%;
+    height: 70%;
     border: none;
     background-color: #94B6BD;
     border-radius: 2vh;
@@ -436,4 +456,3 @@ body {
     font-family: 'RopaSans Italic';
     text-decoration: none;
 }
-

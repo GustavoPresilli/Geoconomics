@@ -45,6 +45,7 @@
                                 <span>Gênero</span>
                             </div>
                             <select id="">
+                                <option selected disabled value="#">Selecione um gênero</option>
                                 <option value="">Masculino</option>
                                 <option value="">Feminino</option>
                                 <option value="">Prefiro não informar</option>
@@ -69,6 +70,35 @@
                         </div>
                         <input placeholder="Confirme a sua senha" id="input_usuario">
                     </div>
+                    <div class="campo">
+                        <div class="tituloCampo">
+                            <span>Sua região</span>
+                        </div>
+                        <select id="select_regiao">
+                            <option selected disabled value="#">Selecione uma região</option>
+                            <option>Leste da Ásia</option>
+                            <option>Sudeste da Ásia</option>
+                            <option>Ásia Central</option>
+                            <option>Norte da Ásia</option>
+                            <option>Sudoeste da Ásia</option>
+                            <option>Sul da Ásia</option>
+                            <option>Ásia Ocidental</option>
+                            <option>Áfica Meridional</option>
+                            <option>Áfica Ocidental</option>
+                            <option>Áfica Oriental</option>
+                            <option>Áfica Central</option>
+                            <option>Áfica Central</option>
+                            <option>América do Norte</option>
+                            <option>América Central</option>
+                            <option>América do Sul</option>
+                            <option>Oceania</option>
+                            <option>Antarctica</option>
+                            <option>Europa do Sul</option>
+                            <option>Europa do Ocidental</option>
+                            <option>Europa do Oriental</option>
+                            <option>Europa do Norte</option>
+                        </select>
+                    </div>
                     <div class="botao">
                         <button>Cadastrar</button>
                     </div>
@@ -80,11 +110,11 @@
 
 </html>
 <script>
-    function retornar(){
+    function retornar() {
         window.location = "index.html"
     }
 
-    function login(){
+    function login() {
         window.location = "login.html"
     }
 </script>
