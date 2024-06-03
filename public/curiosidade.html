@@ -17,8 +17,8 @@
                     <img src="assets/img/foto_usuario.png" alt="">
                     <span>Olá, Usuário</span>
                 </div>
-                <span>Idade: 19 anos</span>
-                <span>Região: América do Sul</span>
+                <span id="idade_usuario">Idade: </span>
+                <span id="regiao_usuario">Região: América do Sul</span>
                 <button onclick="sair()">Sair</button>
             </div>
         </div>
@@ -286,88 +286,36 @@
 
 </html>
 <script>
-
-    // Página principal 
-
-    const dataAtual = new Date();
-
-    horarioTitulo.innerHTML = `${dataAtual.toLocaleTimeString()}`
-
-    setInterval(function () {
+    function atualizarHorario(elemento, timeZone) {
         const dataAtual = new Date();
+        elemento.innerHTML = `${dataAtual.toLocaleTimeString('pt-BR', { timeZone: timeZone })}`;
+    }
 
-        horarioTitulo.innerHTML = `${dataAtual.toLocaleTimeString()}`
-    }, 1000)
+    atualizarHorario(horarioTitulo, 'America/Sao_Paulo');
+    atualizarHorario(horarioEuropa, 'GMT');
+    atualizarHorario(horarioAmerica, 'America/New_York');
+    atualizarHorario(horarioAsia, 'Asia/Hong_Kong');
+    atualizarHorario(horarioAfrica, 'Africa/Cairo');
+    atualizarHorario(horarioOceania, 'Australia/Sydney');
+    atualizarHorario(horarioAnt, 'Pacific/Auckland');
 
-    // Horário Europa 
-
-    const dataEuropa = new Date()
-
-    horarioEuropa.innerHTML = `${dataEuropa.toLocaleTimeString('pt-BR', { timeZone: 'GMT' })}`
-
-    setInterval(function () {
-        const dataEuropa = new Date()
-
-        horarioEuropa.innerHTML = `${dataEuropa.toLocaleTimeString('pt-BR', { timeZone: 'GMT' })}`
-
-    }, 1000)
-
-    const dataAmerica = new Date()
-
-    horarioAmerica.innerHTML = `${dataAmerica.toLocaleTimeString('pt-BR', { timeZone: 'America/New_York' })}`
-
-    setInterval(function () {
-        const dataAmerica = new Date()
-
-        horarioAmerica.innerHTML = `${dataAmerica.toLocaleTimeString('pt-BR', { timeZone: 'America/New_York' })}`
-
-    }, 1000)
-
-    const dataAsia = new Date()
-
-    horarioAsia.innerHTML = `${dataAsia.toLocaleTimeString('pt-BR', { timeZone: 'Asia/Hong_Kong' })}`
-
-    setInterval(function () {
-        const dataAsia = new Date()
-
-        horarioAsia.innerHTML = `${dataAsia.toLocaleTimeString('pt-BR', { timeZone: 'Asia/Hong_Kong' })}`
-
-    }, 1000)
-
-    const dataAfrica = new Date()
-
-    horarioAfrica.innerHTML = `${dataAfrica.toLocaleTimeString('pt-BR', { timeZone: 'Africa/Cairo' })}`
-
-    setInterval(function () {
-        const dataAfrica = new Date()
-
-        horarioAfrica.innerHTML = `${dataAfrica.toLocaleTimeString('pt-BR', { timeZone: 'Africa/Cairo' })}`
-
-    }, 1000)
-
-    const dataOceania = new Date()
-
-    horarioOceania.innerHTML = `${dataOceania.toLocaleTimeString('pt-BR', { timeZone: 'Australia/Sydney' })}`
-
-    setInterval(function () {
-        const dataOceania = new Date()
-
-        horarioOceania.innerHTML = `${dataOceania.toLocaleTimeString('pt-BR', { timeZone: 'Australia/Sydney' })}`
-
-    }, 1000)
-
-    const dataAnt = new Date()
-
-    horarioAnt.innerHTML = `${dataAnt.toLocaleTimeString('pt-BR', { timeZone: 'Pacific/Auckland' })}`
-
-    setInterval(function () {
-        const dataAnt = new Date()
-
-        horarioAnt.innerHTML = `${dataAnt.toLocaleTimeString('pt-BR', { timeZone: 'Pacific/Auckland' })}`
-
-    }, 1000)
+    setInterval(() => {
+        atualizarHorario(horarioTitulo, 'America/Sao_Paulo');
+        atualizarHorario(horarioEuropa, 'GMT');
+        atualizarHorario(horarioAmerica, 'America/New_York');
+        atualizarHorario(horarioAsia, 'Asia/Hong_Kong');
+        atualizarHorario(horarioAfrica, 'Africa/Cairo');
+        atualizarHorario(horarioOceania, 'Australia/Sydney');
+        atualizarHorario(horarioAnt, 'Pacific/Auckland');
+    }, 1000);
 
     function sair() {
         window.location = "index.html"
     }
+
+    var idade = sessionStorage.IDADE_USUARIO;
+    var regiao = sessionStorage.REGIAO_USUARIO;
+
+    idade_usuario.innerHTML = idade;
+    regiao_usuario.innerHTML = regiao;
 </script>

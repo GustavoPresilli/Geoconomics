@@ -49,10 +49,45 @@
         else if (email.indexOf('@') < 0 || email.indexOf('.') < 0 || email.lenght < 3) {
             buildCardMensagem("block", 'erro', 'Insira um e-mail válido')
         } else {
-            buildCardMensagem("block", 'info', 'Redirecionando para a aplicação')
-            setTimeout(function () {
-                window.location = "curiosidade.html"
-            }, 2000)
+            fetch(`/usuarios/autenticar`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        resposta.json().then((dadosUsuario) => {
+                            if (dadosUsuario.length == 1) {
+                                buildCardMensagem("block", "ok", "Redirecionando para a dashboard...")
+                                setTimeout(function () {
+                                    window.location = "curiosidade.html"
+                                }, 2000)
+
+                                sessionStorage.NOME_USUARIO = dadosUsuario[0].nome;
+                                sessionStorage.IDADE_USUARIO = dadosUsuario[0].idade;
+                                sessionStorage.EMAIL_USUARIO = dadosUsuario[0].email;
+                                sessionStorage.GENERO_USUARIO = dadosUsuario[0].genero;
+                                sessionStorage.REGIAO_USUARIO = dadosUsuario[0].regiao;
+
+                            } else if (dadosUsuario.length > 1) {
+                                buildCardMensagem("block", "erro", "Mais de um login e senha")
+                            }
+                        });
+
+                    } else {
+                        throw buildCardMensagem("block", "erro", "Login ou senha inválidos");
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
         }
 
     }
