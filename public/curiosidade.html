@@ -15,10 +15,10 @@
             <div class="container">
                 <div class="usuario">
                     <img src="assets/img/foto_usuario.png" alt="">
-                    <span>Olá, Usuário</span>
+                    <span id="nome_usuario">Olá, </span>
                 </div>
                 <span id="idade_usuario">Idade: </span>
-                <span id="regiao_usuario">Região: América do Sul</span>
+                <span id="regiao_usuario">Região:</span>
                 <button onclick="sair()">Sair</button>
             </div>
         </div>
@@ -282,6 +282,15 @@
             </div>
         </div>
     </div>
+    <div class="paginaQuiz">
+        <div class="tituloQuiz">
+            <h1>Faça um quiz!</h1>
+        </div>
+        <div class="caixaBotoes">
+            <button>Quiz de Bandeiras</button>
+            <button>Quiz de Capitais</button>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -315,7 +324,9 @@
 
     var idade = sessionStorage.IDADE_USUARIO;
     var regiao = sessionStorage.REGIAO_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
 
-    idade_usuario.innerHTML = idade;
-    regiao_usuario.innerHTML = regiao;
+    idade_usuario.innerHTML += ` ${idade}`;
+    regiao_usuario.innerHTML += ` ${regiao}`;
+    nome_usuario.innerHTML += ` ${nome}`
 </script>
