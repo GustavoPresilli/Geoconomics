@@ -129,10 +129,10 @@ body {
 }
 
 .imagemCasa {
-    z-index: 10;
+    z-index: 1;
     cursor: pointer;
     top: 2%;
-    left: 20vh;
+    left: 25vh;
     /* border: 2px solid red; */
     filter: invert(1);
     width: 10vh;

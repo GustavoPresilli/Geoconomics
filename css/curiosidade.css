@@ -152,6 +152,7 @@ body {
     font-size: 3.5vh;
     font-weight: 100;
     font-family: 'RopaSans';
+    padding-left: 2%;
 }
 
 .imagemContinente {
@@ -283,15 +284,16 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .caixaTextoContinenteEuropa {
     width: 95%;
     height: 60%;
     background-color: #DDDDDD;
-    border-top: 1vh solid #098CD4;
-    border-left: 0.8vh solid #098CD4;
+    /* border-top: 1vh solid #098CD4;
+    border-left: 0.8vh solid #098CD4; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #098CD4; 
 }
 
 .caixaTextoContinenteEuropa p {
@@ -307,6 +309,138 @@ body {
     display: flex;
     flex-direction: column;
     border-top-width: 90%;
-    border-top: 1vh solid #098CD4;
-    border-left: 0.8vh solid #098CD4;
+    /* border-top: 1vh solid #098CD4;
+    border-left: 0.8vh solid #098CD4; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #098CD4; 
+}
+
+.caixaTextoContinenteAmerica {
+    width: 95%;
+    height: 60%;
+    background-color: #DDDDDD;
+    /* border-top: 1vh solid #098CD4;
+    border-left: 0.8vh solid #098CD4; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #F82B2B; 
+}
+
+.caixaTextoContinenteAmerica p {
+    font-family: 'RopaSans';
+    font-size: 3vh;
+    margin-left: 1%;
+}
+
+.caixaFusoHorarioAmerica {
+    width: 95%;
+    height: 70%;
+    background-color: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    border-top-width: 90%;
+    /* border-top: 1vh solid #F82B2B;
+    border-left: 0.8vh solid #F82B2B; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #F82B2B; 
+}
+
+.caixaTextoContinenteAsia {
+    width: 95%;
+    height: 60%;
+    background-color: #DDDDDD;
+    /* border-top: 1vh solid #098CD4;
+    border-left: 0.8vh solid #098CD4; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #CFC935; 
+}
+
+.caixaTextoContinenteAsia p {
+    font-family: 'RopaSans';
+    font-size: 3vh;
+    margin-left: 1%;
+}
+
+.caixaFusoHorarioAsia {
+    width: 95%;
+    height: 70%;
+    background-color: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    border-top-width: 90%;
+    /* border-top: 1vh solid #CFC935;
+    border-left: 0.8vh solid #CFC935; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #CFC935; 
+}
+
+.caixaTextoContinenteAfrica {
+    width: 95%;
+    height: 60%;
+    background-color: #DDDDDD;
+    /* border-top: 1vh solid #098CD4;
+    border-left: 0.8vh solid #098CD4; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #5B5C5D; 
+}
+
+.caixaTextoContinenteAfrica p {
+    font-family: 'RopaSans';
+    font-size: 3vh;
+    margin-left: 1%;
+}
+
+.caixaFusoHorarioAfrica {
+    width: 95%;
+    height: 70%;
+    background-color: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    border-top-width: 90%;
+    /* border-top: 1vh solid #5B5C5D;
+    border-left: 0.8vh solid #5B5C5D; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #5B5C5D; 
+}
+
+.caixaTextoContinenteOceania {
+    width: 95%;
+    height: 60%;
+    background-color: #DDDDDD;
+    /* border-top: 1vh solid #098CD4;
+    border-left: 0.8vh solid #098CD4; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #0B8F3D; 
+}
+
+.caixaTextoContinenteOceania p {
+    font-family: 'RopaSans';
+    font-size: 3vh;
+    margin-left: 1%;
+}
+
+.caixaFusoHorarioOceania {
+    width: 95%;
+    height: 70%;
+    background-color: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    border-top-width: 90%;
+    box-shadow: 1.5vh 1.5vh 0.4vh #0B8F3D; 
+}
+
+.caixaTextoContinenteAntartica {
+    width: 95%;
+    height: 60%;
+    background-color: #DDDDDD;
+    /* border-top: 1vh solid #098CD4;
+    border-left: 0.8vh solid #098CD4; */
+    box-shadow: 1.5vh 1.5vh 0.4vh #D6D2D2; 
+}
+
+.caixaTextoContinenteAntartica p {
+    font-family: 'RopaSans';
+    font-size: 3vh;
+    margin-left: 1%;
+}
+
+.caixaFusoHorarioAntartica {
+    width: 95%;
+    height: 70%;
+    background-color: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    border-top-width: 90%;
+    box-shadow: 1.5vh 1.5vh 0.4vh #D6D2D2; 
 }
