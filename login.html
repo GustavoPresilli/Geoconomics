@@ -19,11 +19,11 @@
                 <div class="container">
                     <img src="img/logo_escura_prateada.png" alt="">
                     <div class="camposLogin">
-                        <input placeholder="Usuário" type="text">
-                        <input placeholder="Senha" type="text">
+                        <input id="input_email" placeholder="Email" type="text">
+                        <input id="input_senha" placeholder="Senha" type="password">
                     </div>
                     <div class="botao">
-                        <button>Entrar</button>
+                        <button onclick="entrar()">Entrar</button>
                     </div>
                 </div>
             </div>
@@ -32,6 +32,42 @@
             <span>Não tem uma conta ? <a href="cadastro.html">Cadastre-se</a></span>
         </div>
     </div>
+    <div id="msg_alertas" class="msg_alertas">
+        <span class="ms" id="mensagem">Teste</span>
+    </div>
 </body>
 
 </html>
+<script>
+    function entrar() {
+        var email = input_email.value;
+        var senha = input_senha.value;
+
+        if (email == "" || senha == "") {
+            buildCardMensagem("block", 'erro', 'Preencha todos os campos')
+        }
+        else if (email.indexOf('@') < 0 || email.indexOf('.') < 0 || email.lenght < 3) {
+            buildCardMensagem("block", 'erro', 'Insira um e-mail válido')
+        } else {
+            buildCardMensagem("block", 'info', 'Redirecionando para a aplicação')
+            setTimeout(function () {
+                window.location = "curiosidade.html"
+            }, 2000)
+        }
+
+    }
+
+    function buildCardMensagem(display, classe, mensagem) {
+        const msg = document.getElementById('mensagem');
+        const msg_alertas = document.getElementById('msg_alertas');
+
+        msg.className = 'ms';
+
+        msg_alertas.style.display = display;
+        msg.classList.add(classe);
+        msg.innerHTML = mensagem;
+        setTimeout(function () {
+            msg_alertas.style.display = "none";
+        }, 3000);
+    }
+</script>

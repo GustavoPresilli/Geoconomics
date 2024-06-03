@@ -44,7 +44,7 @@
                             <div class="tituloGenero">
                                 <span>Gênero</span>
                             </div>
-                            <select id="">
+                            <select id="select_genero">
                                 <option selected disabled value="#">Selecione um gênero</option>
                                 <option value="">Masculino</option>
                                 <option value="">Feminino</option>
@@ -100,11 +100,14 @@
                         </select>
                     </div>
                     <div class="botao">
-                        <button>Cadastrar</button>
+                        <button onclick="cadastrar()">Cadastrar</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="msg_alertas" class="msg_alertas">
+        <span class="ms" id="mensagem">Teste</span>
     </div>
 </body>
 
@@ -116,5 +119,47 @@
 
     function login() {
         window.location = "login.html"
+    }
+
+    function cadastrar() {
+        var usuario = input_usuario.value;
+        var dataNascimento = input_dataNascimento.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var confirmar_senha = input_confirmar_senha.value;
+        var regiao = select_regiao.value;
+        var genero = select_genero.value;
+
+
+        if (usuario == "" || dataNascimento == "" || email == "" || senha == "" || confirmar_senha == "" 
+        || regiao == "#" || genero == "#" ) {
+            buildCardMensagem("block", 'erro', 'Preencha todos os campos')
+        } else if (email.indexOf('@') < 0 || email.indexOf('.') < 0 || email.lenght < 3) {
+            buildCardMensagem("block", 'erro', 'Insira um e-mail válido')
+        } else if (usuario.lenght < 3) {
+            buildCardMensagem("block", 'erro', 'Insira um usuário válido')
+        } else if (senha != confirmar_senha){
+            buildCardMensagem("block", 'erro', 'Suas senhas estão diferentes')
+        } else {
+            buildCardMensagem("block", 'info', 'Cadastro realizado, redirecionando ao Login')
+    
+            setTimeout(function () {
+                window.location = "login.html"
+            }, 2000)
+        }
+    } 
+
+    function buildCardMensagem(display, classe, mensagem) {
+        const msg = document.getElementById('mensagem');
+        const msg_alertas = document.getElementById('msg_alertas');
+
+        msg.className = 'ms';
+
+        msg_alertas.style.display = display;
+        msg.classList.add(classe);
+        msg.innerHTML = mensagem;
+        setTimeout(function () {
+            msg_alertas.style.display = "none";
+        }, 3000);
     }
 </script>

@@ -19,6 +19,7 @@
                 </div>
                 <span>Idade: 19 anos</span>
                 <span>Região: América do Sul</span>
+                <button onclick="sair()">Sair</button>
             </div>
         </div>
         <div class="inicio">
@@ -365,4 +366,8 @@
         horarioAnt.innerHTML = `${dataAnt.toLocaleTimeString('pt-BR', { timeZone: 'Pacific/Auckland' })}`
 
     }, 1000)
+
+    function sair() {
+        window.location = "index.html"
+    }
 </script>
