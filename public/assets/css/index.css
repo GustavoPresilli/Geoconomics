@@ -97,7 +97,7 @@ body {
     align-items: flex-end;
     justify-content: space-between;
     flex-direction: row;
-    background-image: url(../img/fundo_inicio.png);
+    background-image: url(../assets/img/fundo_inicio.png);
     background-position: bottom;
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -225,7 +225,7 @@ body {
 .sobre {
     height: 100vh;
     width: 100%;
-    background-image: url(../img/fundo_sobre.png);
+    background-image: url(../assets/img/fundo_sobre.png);
     background-position: top;
     background-size: 100% auto;
     background-repeat: no-repeat;

@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Geoconomics</title>
-    <link rel="stylesheet" href="css/login-cadastro.css">
-    <link rel="shortcut icon" type="image/jpg" href="img/logo_escura_prateada.png" />
+    <link rel="stylesheet" href="assets/css/login-cadastro.css">
+    <link rel="shortcut icon" type="image/jpg" href="assets/img/logo_escura_prateada.png" />
 </head>
 
 <body>
-    <img class='imagemCasa' onclick="retornar()" src="img/imagem_casa.png">
+    <img class='imagemCasa' onclick="retornar()" src="assets/img/imagem_casa.png">
     <div class="pagina">
         <h1 class="titulo">CADASTRO</h1>
         <div class="container">
@@ -24,7 +24,7 @@
             </div>
             <div class="caixaCadastro">
                 <div class="imagemCadastro">
-                    <img class="imagemLogo" src="img/logo_escura_prateada.png">
+                    <img class="imagemLogo" src="assets/img/logo_escura_prateada.png">
                 </div>
                 <div class="camposCadastro">
                     <div class="campo">
@@ -46,9 +46,9 @@
                             </div>
                             <select id="select_genero">
                                 <option selected disabled value="#">Selecione um gênero</option>
-                                <option value="">Masculino</option>
-                                <option value="">Feminino</option>
-                                <option value="">Prefiro não informar</option>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                                <option>Prefiro não informar</option>
                             </select>
                         </div>
                     </div>
@@ -131,23 +131,49 @@
         var genero = select_genero.value;
 
 
-        if (usuario == "" || dataNascimento == "" || email == "" || senha == "" || confirmar_senha == "" 
-        || regiao == "#" || genero == "#" ) {
+        if (usuario == "" || dataNascimento == "" || email == "" || senha == "" || confirmar_senha == ""
+            || regiao == "#" || genero == "#") {
             buildCardMensagem("block", 'erro', 'Preencha todos os campos')
         } else if (email.indexOf('@') < 0 || email.indexOf('.') < 0 || email.lenght < 3) {
             buildCardMensagem("block", 'erro', 'Insira um e-mail válido')
         } else if (usuario.lenght < 3) {
             buildCardMensagem("block", 'erro', 'Insira um usuário válido')
-        } else if (senha != confirmar_senha){
+        } else if (senha != confirmar_senha) {
             buildCardMensagem("block", 'erro', 'Suas senhas estão diferentes')
         } else {
-            buildCardMensagem("block", 'info', 'Cadastro realizado, redirecionando ao Login')
-    
-            setTimeout(function () {
-                window.location = "login.html"
-            }, 2000)
+            fetch(`/usuarios/cadastrar`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    usuarioServer: usuario,
+                    dataNascServer: dataNascimento,
+                    emailServer: email,
+                    senhaServer: senha,
+                    regiaoServer: regiao,
+                    generoServer: genero
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        buildCardMensagem("block", 'info', 'Cadastro realizado, redirecionando ao Login')
+
+                        setTimeout(function () {
+                            window.location = "login.html"
+                        }, 2000)
+                        console.log("Cadastro realizado")
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
         }
-    } 
+    }
 
     function buildCardMensagem(display, classe, mensagem) {
         const msg = document.getElementById('mensagem');
