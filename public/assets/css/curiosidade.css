@@ -504,6 +504,7 @@ body {
     font-family: 'Questrial';
     border: none;
     transition: 2s;
+    cursor: pointer;
 }
 
 .caixaBotoes button:hover {

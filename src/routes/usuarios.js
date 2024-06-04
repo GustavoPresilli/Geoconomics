@@ -11,4 +11,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/cadastrarMetricasQuizBandeira", function (req, res) {
+    usuarioController.cadastrarMetricasQuizBandeira(req, res);
+});
+
 module.exports = router;

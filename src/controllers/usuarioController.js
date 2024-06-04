@@ -77,7 +77,39 @@ function cadastrar(req, res) {
     }
 }
 
+
+function cadastrarMetricasQuizBandeira(req, res) {
+    var idUsuario = req.body.idUsuarioServer
+    var qtdAcertos = req.body.qtdAcertosServer
+    var qtdErros = req.body.qtdErrosServer
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (qtdAcertos == undefined) {
+        res.status(400).send("Sua quantidade de acertos está undefined!");
+    } else if (qtdErros == undefined) {
+        res.status(400).send("Sua quantidade de erros está undefined!");
+    } else {
+        usuarioModel.cadastrarMetricasQuizBandeira(idUsuario, qtdAcertos, qtdErros)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarMetricasQuizBandeira
 }

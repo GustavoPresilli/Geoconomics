@@ -23,9 +23,11 @@ CREATE TABLE Metricas (
     idMetricas INT AUTO_INCREMENT PRIMARY KEY,
     qtdAcertos INT NOT NULL,
     qtdErros INT NOT NULL,
-    dtTentativa DATE NOT NULL,
+    dtTentativa DATETIME NOT NULL,
     fkQuiz INT,
     fkUsuario INT,
     FOREIGN KEY (fkQuiz) REFERENCES Quiz(idQuiz),
     FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario)
 );
+
+INSERT INTO Quiz VALUES (DEFAULT, 'Quiz de Bandeiras', 'Quiz aparecendo uma bandeira e quatro opções de seleção');
