@@ -287,7 +287,7 @@
             <h1>Faça um quiz!</h1>
         </div>
         <div class="caixaBotoes">
-            <button>Quiz de Bandeiras</button>
+            <button onclick="quiz_bandeira()">Quiz de Bandeiras</button>
             <button>Quiz de Capitais</button>
         </div>
     </div>
@@ -329,4 +329,9 @@
     idade_usuario.innerHTML += ` ${idade}`;
     regiao_usuario.innerHTML += ` ${regiao}`;
     nome_usuario.innerHTML += ` ${nome}`
+
+    function quiz_bandeira() {
+        window.location.href = 'quiz_bandeiras.html'; 
+    }
+
 </script>

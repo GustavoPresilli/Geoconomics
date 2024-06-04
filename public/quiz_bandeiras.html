@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Bandeiras - Geoconomics</title>
+    <link rel="stylesheet" href="assets/css/quiz_bandeira.css">
+    <link rel="shortcut icon" type="image/jpg" href="assets/img/logo_escura_prateada.png" />
+</head>
+
+<body>
+    <div class="pagina">
+        <div class="tituloContainer">
+            <h1>Quiz de Bandeiras!</h1>
+        </div>
+        <div class="container">
+            <div class="quiz-container">
+                <h2 id="question"></h2>
+                <ul class="options" id="options"></ul>
+                <button id="next-btn" onclick="nextQuestion()">Próxima Pergunta</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "<img src='assets/img/flags/bandeira_brasil.png'>",
+                options: ["Brasil", "Alemanha", "China", "Estados Unidos"],
+                correct: "Brasil"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_franca.png'>",
+                options: ["Brasil", "Alemanha", "China", "Estados Unidos"],
+                correct: "Estados Unidos"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_dinamarca.png'>",
+                options: ["Brasil", "Alemanha", "China", "Japão"],
+                correct: "Japão"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_espanha.png'>",
+                options: ["Brasil", "Alemanha", "China", "Estados Unidos"],
+                correct: "Alemanha"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_japao.png'>",
+                options: ["Brasil", "Alemanha", "China", "França"],
+                correct: "França"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_panama.png'>",
+                options: ["Brasil", "Alemanha", "China", "Itália"],
+                correct: "Itália"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_indonesia.png'>",
+                options: ["Brasil", "Alemanha", "China", "Estados Unidos"],
+                correct: "China"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_colombia.png'>",
+                options: ["Brasil", "Alemanha", "China", "Índia"],
+                correct: "Índia"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_estonia.png'>",
+                options: ["Brasil", "Alemanha", "China", "Rússia"],
+                correct: "Rússia"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_tunisia.png'>",
+                options: ["Brasil", "Alemanha", "China", "Canadá"],
+                correct: "Canadá"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_palau.png'>",
+                options: ["Brasil", "Alemanha", "China", "Canadá"],
+                correct: "Canadá"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_vanuatu.png'>",
+                options: ["Brasil", "Alemanha", "China", "Canadá"],
+                correct: "Canadá"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_lichestein.png'>",
+                options: ["Brasil", "Alemanha", "China", "Canadá"],
+                correct: "Canadá"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_kiribati.png'>",
+                options: ["Brasil", "Alemanha", "China", "Canadá"],
+                correct: "Canadá"
+            },
+            {
+                question: "<img src='assets/img/flags/bandeira_quirguistao.png'>",
+                options: ["Brasil", "Alemanha", "China", "Canadá"],
+                correct: "Canadá"
+            },
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('next-btn');
+
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.innerHTML = currentQuestion.question;
+            optionsElement.innerHTML = '';
+
+            currentQuestion.options.forEach(option => {
+                const optionElement = document.createElement('li');
+                optionElement.innerText = option;
+                optionElement.onclick = () => selectOption(optionElement, option);
+                optionsElement.appendChild(optionElement);
+            });
+        }
+
+        function selectOption(optionElement, option) {
+            const selected = document.querySelector('.options li.selected');
+            if (selected) {
+                selected.classList.remove('selected');
+            }
+            optionElement.classList.add('selected');
+
+            const currentQuestion = quizData[currentQuestionIndex];
+            if (option === currentQuestion.correct) {
+                score++;
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            questionElement.innerHTML = `Você acertou ${score} de ${quizData.length} perguntas!`;
+            optionsElement.innerHTML = '';
+            nextButton.style.display = 'none';
+        }
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>

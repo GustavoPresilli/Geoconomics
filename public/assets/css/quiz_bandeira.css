@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url(../fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+
+@font-face {
+    font-family: 'RopaSans Italic';
+    src: url(../fonts/RopaSans-Italic.ttf);
+}
+
+@font-face {
+    font-family: 'RopaSans';
+    src: url(../fonts/RopaSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSansItalic';
+    src: url(../fonts/OpenSans-Italic-VariableFont_wdth\,wght.ttf);
+}
+
+@font-face {
+    font-family: 'MontSerrat';
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Questrial';
+    src: url(../fonts/Questrial-Regular.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.pagina {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #18191A;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.pagina .container {
+    align-self: center;
+    justify-content: center;
+    height: 80%;
+}
+
+.tituloContainer {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    font-size: 5vh;
+    font-family: 'MontSerrat';
+}
+
+.quiz-container {
+    background-color: #3D3E40;  
+    border-radius: 2vh;
+    width: 50%;
+    height: 70%;
+    max-width: 100%;
+    max-height: 90%;
+}
+
+#question {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#question img {
+    height: 90%;
+    width: 45%;
+}
+
+.options {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.options li {
+    width: 45%;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.options li:hover {
+    background-color: #0056b3;
+}
+
+.options li.selected {
+    background-color: #28a745;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    height: 10%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
