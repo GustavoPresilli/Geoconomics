@@ -51,7 +51,7 @@
         {
             question: "Qual a capital da <span>Rússia</span> ?",
             options: ["Madrid", "Moscou", "Amsterdam", "Paris"],
-            correct: "França"
+            correct: "Moscou"
         },
         {
             question: "Qual a capital da <span>Noruega</span> ?",
@@ -90,8 +90,8 @@
         },
         {
             question: "Qual a capital da <span>Palestina</span> ?",
-            options: ["Bacu", "Banjui", "Gaza", "Jerusalém"],
-            correct: "Gaza"
+            options: ["Bacu", "Banjui", "Ramallah", "Jerusalém"],
+            correct: "Ramallah"
         },
         {
             question: "Qual a capital da <span>Hungria</span> ?",
@@ -175,8 +175,8 @@
             qtdErros++
         }
 
-        console.log(qtdAcertos);
-        console.log(qtdErros)
+        console.log("Acertos " + qtdAcertos);
+        console.log("Erros " + qtdErros);
         questaoAtual++;
 
         if (questaoAtual < quizData.length) {
