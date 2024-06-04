@@ -15,6 +15,10 @@ router.post("/cadastrarMetricasQuizBandeira", function (req, res) {
     usuarioController.cadastrarMetricasQuizBandeira(req, res);
 });
 
+router.post("/cadastrarMetricasQuizPais", function (req, res) {
+    usuarioController.cadastrarMetricasQuizPais(req, res);
+});
+
 router.get("/capturarMetricas/:idUsuario", function(req, res) {
     usuarioController.capturarMetricas(req, res)
 })

@@ -289,10 +289,13 @@
         </div>
         <div class="caixaBotoes">
             <button onclick="quiz_bandeira()">Quiz de Bandeiras</button>
-            <button>Quiz de Capitais</button>
+            <button onclick="quiz_capital()">Quiz de Capitais</button>
         </div>
     </div>
     <div class="dashBoardQuiz">
+        <div class="tituloQuiz">
+            <h1>Dashboard do seus resultados</h1>
+        </div>
         <div class="container">
             <canvas id="myChart"></canvas>
         </div>
@@ -341,77 +344,81 @@
         window.location.href = 'quiz_bandeiras.html';
     }
 
+    function quiz_capital() {
+        window.location.href = 'quiz_capital.html';
+    }
+
     var listaLabel = [];
     var listAcertos = [];
     var listaErros = [];
 
     let myChart; // Declare a variable to hold the chart instance
 
-function capturarDados() {
-    fetch(`/usuarios/capturarMetricas/${idUsuario}`, {
-        method: "GET",
-    })
-    .then(function (resposta) {
-        resposta.json().then((metricas) => {
-            for (var i = 0; i < metricas.length; i++) { // Adjusted the condition
-                var metricaAtual = metricas[i];
-                var data = new Date(metricaAtual.dtTentativa)
+    function capturarDados() {
+        fetch(`/usuarios/capturarMetricas/${idUsuario}`, {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((metricas) => {
+                    for (var i = 0; i < metricas.length; i++) { // Adjusted the condition
+                        var metricaAtual = metricas[i];
+                        var data = new Date(metricaAtual.dtTentativa)
 
-                listaLabel.push(data.toLocaleString())
-                listAcertos.push(metricaAtual.qtdAcertos)
-                listaErros.push(metricaAtual.qtdErros)
-            }
-            plotarGrafico();
-        });
-    })
-    .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-    });
-}
-
-capturarDados();
-
-function plotarGrafico() {
-    if (myChart) {
-        myChart.destroy(); // Destroy the existing chart if it exists
+                        listaLabel.push(data.toLocaleString())
+                        listAcertos.push(metricaAtual.qtdAcertos)
+                        listaErros.push(metricaAtual.qtdErros)
+                    }
+                    plotarGrafico();
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
     }
 
-    const ctx = document.getElementById('myChart');
+    capturarDados();
 
-    const data = {
-        labels: listaLabel,
-        datasets: [
-            {
-                label: 'Quantidade de Acertos',
-                data: listAcertos,
-                backgroundColor: 'green',
-                borderColor: 'rgb(255, 199, 132)',
-                borderWidth: 1
-            },
-            {
-                label: 'Quantidade de Erros',
-                data: listaErros,
-                backgroundColor: 'red',
-                borderColor: 'rgb(255, 199, 132)',
-                borderWidth: 1
-            }
-        ]
-    };
+    function plotarGrafico() {
+        if (myChart) {
+            myChart.destroy(); // Destroy the existing chart if it exists
+        }
 
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        const ctx = document.getElementById('myChart');
+
+        const data = {
+            labels: listaLabel,
+            datasets: [
+                {
+                    label: 'Quantidade de Acertos',
+                    data: listAcertos,
+                    backgroundColor: 'green',
+                    borderColor: 'rgb(255, 199, 132)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Quantidade de Erros',
+                    data: listaErros,
+                    backgroundColor: 'red',
+                    borderColor: 'rgb(255, 199, 132)',
+                    borderWidth: 1
                 }
-            }
-        },
-    };
+            ]
+        };
 
-    myChart = new Chart(ctx, config); // Assign the new chart to the variable
-}
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+
+        myChart = new Chart(ctx, config);
+    }
 
 
 

@@ -99,6 +99,33 @@ function cadastrarMetricasQuizBandeira(req, res) {
     }
 }
 
+function cadastrarMetricasQuizPais(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    var qtdAcertos = req.body.qtdAcertosServer;
+    var qtdErros = req.body.qtdErrosServer;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (qtdAcertos == undefined) {
+        res.status(400).send("Sua quantidade de acertos está undefined!");
+    } else if (qtdErros == undefined) {
+        res.status(400).send("Sua quantidade de erros está undefined!");
+    } else {
+        usuarioModel
+            .cadastrarMetricasQuizPais(idUsuario, qtdAcertos, qtdErros).then(function (resultado) {
+                res.json(resultado);
+            })
+            .catch(function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
+
 function capturarMetricas(req, res) {
     var idUsuario = req.params.idUsuario;
 
@@ -124,5 +151,6 @@ module.exports = {
     autenticar,
     cadastrar,
     cadastrarMetricasQuizBandeira,
+    cadastrarMetricasQuizPais,
     capturarMetricas
 };

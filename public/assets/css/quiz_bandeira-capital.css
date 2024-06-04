@@ -113,11 +113,20 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    color: #ffff;
+    font-family: 'Questrial';
+
 }
 
 #bandeira img {
     height: 90%;
     width: 45%;
+}
+
+#bandeira span {
+    color: red;
+    margin-left: 2%;
+    margin-right: 1%;
 }
 
 #numQuestao {

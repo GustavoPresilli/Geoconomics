@@ -11,10 +11,10 @@
 
 <body>
     <button class="botaoSair" onclick="sair()">Sair</button>
-    <p id="numQuestao">AQUIAUQIUAIQ</p>
+    <p id="numQuestao"></p>
     <div class="pagina">
         <div class="tituloContainer">
-            <h1>Quiz de Bandeiras!</h1>
+            <h1>Quiz de Capital!</h1>
         </div>
         <div class="container">
             <div id="quiz_container" class="quiz-container">
@@ -44,80 +44,80 @@
     resultado.style.display = "none";
     const quizData = [
         {
-            question: "<img src='assets/img/flags/bandeira_brasil.png'>",
-            options: ["Brasil", "Alemanha", "China", "Estados Unidos"],
-            correct: "Brasil"
+            question: "Qual a capital da <span>Alemanha</span> ?",
+            options: ["Berlim", "Moscou", "Pequim", "Tóquio"],
+            correct: "Berlim"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_franca.png'>",
-            options: ["Holanda", "Russia", "Luxemburgo", "França"],
+            question: "Qual a capital da <span>Rússia</span> ?",
+            options: ["Madrid", "Moscou", "Amsterdam", "Paris"],
             correct: "França"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_dinamarca.png'>",
-            options: ["Dinamarca", "Suécia", "Noruega", "Finlândia"],
-            correct: "Dinamarca"
+            question: "Qual a capital da <span>Noruega</span> ?",
+            options: ["Estocolmo", "Helsing", "Oslo", "Lisboa"],
+            correct: "Olso"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_espanha.png'>",
-            options: ["Alemanha", "Espanha", "Portugal", "Inglaterra"],
-            correct: "Espanha"
+            question: "Qual a capital da <span>Irlanda</span> ?",
+            options: ["Dublin", "Berna", "Ottawa", "Praga"],
+            correct: "Dublin"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_japao.png'>",
-            options: ["Palau", "Coreia do Sul", "China", "Japão"],
-            correct: "Japão"
+            question: "Qual a capital da <span>Egito</span> ?",
+            options: ["Cidade do Cabo", "Nova Deli", "Cairo", "Luanda"],
+            correct: "Cairo"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_panama.png'>",
-            options: ["Panamá", "Argélia", "Nicarágua", "Belize"],
-            correct: "Panamá"
+            question: "Qual a capital do <span>Peru</span> ?",
+            options: ["La Paz", "Lima", "Santiago", "Montevidéu"],
+            correct: "Lima"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_indonesia.png'>",
-            options: ["Cingapura", "Indonésia", "Polônia", "Tunísia"],
-            correct: "Indonésia"
+            question: "Qual a capital da <span>Coreia do Sul</span> ?",
+            options: ["Pyongyang", "Seoul", "Pequim", "Tóquio"],
+            correct: "Seoul"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_colombia.png'>",
-            options: ["Romania", "Equador", "Venezuela", "Colômbia"],
-            correct: "Colômbia"
+            question: "Qual a capital de <span>Cuba</span> ?",
+            options: ["Quito", "Macau", "Havana", "Daca"],
+            correct: "Havana"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_estonia.png'>",
-            options: ["Ucrânia", "Letônia", "Estônia", "Austria"],
-            correct: "Estônia"
+            question: "Qual a capital da <span>Indonésia</span> ?",
+            options: ["Jacarta", "Abu Dhabi", "Hanói", "Kingston"],
+            correct: "Jacarta"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_tunisia.png'>",
-            options: ["Azerbaijão", "Argélia", "Tunísia", "Turquia"],
-            correct: "Tunísia"
+            question: "Qual a capital da <span>Palestina</span> ?",
+            options: ["Bacu", "Banjui", "Gaza", "Jerusalém"],
+            correct: "Gaza"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_palau.png'>",
-            options: ["Japão", "Palau", "Micronésia", "Bangladesh"],
-            correct: "Palau"
+            question: "Qual a capital da <span>Hungria</span> ?",
+            options: ["Bruxelas", "Ancara", "Atenas", "Budapeste"],
+            correct: "Budapeste"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_vanuatu.png'>",
-            options: ["Afica do Sul", "Vanuatu", "Papua Nova-Guiné", "Guinè"],
-            correct: "Vanuatu"
+            question: "Qual a capital do <span>Irã</span> ?",
+            options: ["Taipé", "Saná", "Teerã", "Riade"],
+            correct: "Teerã"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_lichestein.png'>",
-            options: ["Haiti", "Liechtenstein", "Mongólia", "Chéquia"],
-            correct: "Liechtenstein"
+            question: "Qual a capital do <span>Bahamas</span> ?",
+            options: ["Nairóbi", "Nassau", "Guitega", "Inglaterra"],
+            correct: "Nassau"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_kiribati.png'>",
-            options: ["Nova Zelândia", "Nepal", "Kiribati", "Samoa"],
-            correct: "Kiribati"
+            question: "Qual a capital da <span>Costa Rica</span> ?",
+            options: ["San José", "Quito", "Bogotá", "Astana"],
+            correct: "San José"
         },
         {
-            question: "<img src='assets/img/flags/bandeira_quirguistao.png'>",
-            options: ["Quirguistão", "Mongólia", "Macedônia", "Taiwan"],
-            correct: "Quirguistão"
-        },
+            question: "Qual a capital da <span>Eitiópia</span> ?",
+            options: ["Gaborone", "Beirute", "Adis-Abeba", "Abuja"],
+            correct: "Adis-Abeba"
+        }
     ];
 
     var questaoAtual = 0; //  Indice da pergunta atual
@@ -183,7 +183,7 @@
             carregarQuestao();
             numQuestao.innerHTML = `Questão ${questaoAtual + 1} de ${quizData.length}`
         } else {
-            fetch(`/usuarios/cadastrarMetricasQuizBandeira`, {
+            fetch(`/usuarios/cadastrarMetricasQuizPais`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
