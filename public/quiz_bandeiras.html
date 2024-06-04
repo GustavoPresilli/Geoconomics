@@ -16,13 +16,19 @@
             <h1>Quiz de Bandeiras!</h1>
         </div>
         <div class="container">
-            <div class="quiz-container">
-                <h2 id="question"></h2>
+            <div id="quiz_container" class="quiz-container">
+                <h2 id="bandeira"></h2>
                 <div class="opcoes">
-                    <ul class="options" id="options"></ul>
+                    <ul class="options" id="opcoesResposta"></ul>
                 </div>
                 <div class="botao">
-                    <button id="next-btn" onclick="nextQuestion()">Próxima Pergunta</button>
+                    <button id="next-btn" onclick="proximaQuestao()">Próxima Pergunta</button>
+                </div>
+            </div>
+            <div class="resultado" id="resultado">
+                <div class="container">
+                    <div id="div_mensagem"></div>
+                    <button onclick="reiniciar()">Reiniciar</button>
                 </div>
             </div>
         </div>
@@ -32,6 +38,7 @@
 
 </html>
 <script>
+    resultado.style.display = "none";
     const quizData = [
         {
             question: "<img src='assets/img/flags/bandeira_brasil.png'>",
@@ -41,7 +48,7 @@
         {
             question: "<img src='assets/img/flags/bandeira_franca.png'>",
             options: ["Holanda", "Russia", "Luxemburgo", "França"],
-            correct: "Estados Unidos"
+            correct: "França"
         },
         {
             question: "<img src='assets/img/flags/bandeira_dinamarca.png'>",
@@ -110,57 +117,81 @@
         },
     ];
 
-    let currentQuestionIndex = 0;
-    let score = 0;
+    var questaoAtual = 0; //  Indice da pergunta atual
+    var qtdAcertos = 0;  // Contador de acertos
 
-    const questionElement = document.getElementById('question');
-    const optionsElement = document.getElementById('options');
-    const nextButton = document.getElementById('next-btn');
+    function carregarQuestao() {
+        const currentQuestion = quizData[questaoAtual];
+        bandeira.innerHTML = currentQuestion.question;
+        opcoesResposta.innerHTML = '';
 
-    function loadQuestion() {
-        const currentQuestion = quizData[currentQuestionIndex];
-        questionElement.innerHTML = currentQuestion.question;
-        optionsElement.innerHTML = '';
+        for (var i = 0; i < currentQuestion.options.length; i++) {
+            let opcaoAtual = currentQuestion.options[i]
 
-        currentQuestion.options.forEach(option => {
-            const optionElement = document.createElement('li');
-            optionElement.innerText = option;
-            optionElement.onclick = () => selectOption(optionElement, option);
-            optionsElement.appendChild(optionElement);
-        });
+            let opcaoResposta = document.createElement('li');
+
+            opcaoResposta.innerText = opcaoAtual;
+
+            // Criando a função da opção selecionada
+            opcaoResposta.onclick = () => selectOption(opcaoResposta, opcaoAtual)
+
+            // Usando apend child para definir qual é o pai 
+            opcoesResposta.appendChild(opcaoResposta);
+        }
+
     }
 
+
+    carregarQuestao();
+    // Carregar a primeira questão;
+
+
+    // Função para selecionar a opção
     function selectOption(optionElement, option) {
         const selected = document.querySelector('.options li.selected');
         if (selected) {
             selected.classList.remove('selected');
         }
         optionElement.classList.add('selected');
+        optionElement.id = "selecionado"
 
-        const currentQuestion = quizData[currentQuestionIndex];
-        if (option === currentQuestion.correct) {
-            score++;
-        }
+        const currentQuestion = quizData[questaoAtual];
+
     }
 
-    function nextQuestion() {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < quizData.length) {
-            loadQuestion();
+    // Passando para a próxima pergunta aumentando seu contador
+    function proximaQuestao() {
+        var questaoAtualMostrada = quizData[questaoAtual];
+        var respostaSelecionada = selecionado.innerHTML;
+
+        if (questaoAtualMostrada.correct === respostaSelecionada) {
+            qtdAcertos++
+        }
+
+        alert(qtdAcertos);
+
+        questaoAtual++;
+
+        if (questaoAtual < quizData.length) {
+            carregarQuestao();
         } else {
-            showResults();
+            mostrarResultados();
         }
     }
 
-    function showResults() {
-        questionElement.innerHTML = `Você acertou ${score} de ${quizData.length} perguntas!`;
-        optionsElement.innerHTML = '';
-        nextButton.style.display = 'none';
+    function mostrarResultados() {
+        quiz_container.style.display = "none";
+        resultado.style.display = "block"
+        div_mensagem.innerHTML = `Você acertou um total de ${qtdAcertos} perguntas`
     }
 
-    loadQuestion();
+    function reiniciar() {
+        window.location = "quiz_bandeiras.html";
+    }
 
-    function sair() { 
+    function sair() {
         window.location = "curiosidade.html"
     }
+
+
 </script>
