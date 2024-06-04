@@ -26,8 +26,16 @@ function cadastrarMetricasQuizBandeira(idUsuario, qtdAcertos, qtdErros) {
     return database.executar(instrucaoSql);
 }
 
+function capturarMetricas(idUsuario) {
+    var instrucaoSql = `
+    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} ORDER BY dtTentativa;`;
+
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarMetricasQuizBandeira
+    cadastrarMetricasQuizBandeira,
+    capturarMetricas
 };

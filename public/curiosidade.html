@@ -7,6 +7,7 @@
     <title>Curiosidade - Geoconomics</title>
     <link rel="stylesheet" href="assets/css/curiosidade.css">
     <link rel="shortcut icon" type="image/jpg" href="assets/img/logo_escura_prateada.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -291,12 +292,17 @@
             <button>Quiz de Capitais</button>
         </div>
     </div>
+    <div class="dashBoardQuiz">
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
 </body>
 
 </html>
 <script>
     function atualizarHorario(elemento, timeZone) {
-        const dataAtual = new Date();
+        var dataAtual = new Date();
         elemento.innerHTML = `${dataAtual.toLocaleTimeString('pt-BR', { timeZone: timeZone })}`;
     }
 
@@ -325,13 +331,88 @@
     var idade = sessionStorage.IDADE_USUARIO;
     var regiao = sessionStorage.REGIAO_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
+    var idUsuario = sessionStorage.ID_USUARIO;
 
     idade_usuario.innerHTML += ` ${idade}`;
     regiao_usuario.innerHTML += ` ${regiao}`;
     nome_usuario.innerHTML += ` ${nome}`
 
     function quiz_bandeira() {
-        window.location.href = 'quiz_bandeiras.html'; 
+        window.location.href = 'quiz_bandeiras.html';
     }
+
+    var listaLabel = [];
+    var listAcertos = [];
+    var listaErros = [];
+
+    let myChart; // Declare a variable to hold the chart instance
+
+function capturarDados() {
+    fetch(`/usuarios/capturarMetricas/${idUsuario}`, {
+        method: "GET",
+    })
+    .then(function (resposta) {
+        resposta.json().then((metricas) => {
+            for (var i = 0; i < metricas.length; i++) { // Adjusted the condition
+                var metricaAtual = metricas[i];
+                var data = new Date(metricaAtual.dtTentativa)
+
+                listaLabel.push(data.toLocaleString())
+                listAcertos.push(metricaAtual.qtdAcertos)
+                listaErros.push(metricaAtual.qtdErros)
+            }
+            plotarGrafico();
+        });
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+capturarDados();
+
+function plotarGrafico() {
+    if (myChart) {
+        myChart.destroy(); // Destroy the existing chart if it exists
+    }
+
+    const ctx = document.getElementById('myChart');
+
+    const data = {
+        labels: listaLabel,
+        datasets: [
+            {
+                label: 'Quantidade de Acertos',
+                data: listAcertos,
+                backgroundColor: 'green',
+                borderColor: 'rgb(255, 199, 132)',
+                borderWidth: 1
+            },
+            {
+                label: 'Quantidade de Erros',
+                data: listaErros,
+                backgroundColor: 'red',
+                borderColor: 'rgb(255, 199, 132)',
+                borderWidth: 1
+            }
+        ]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
+
+    myChart = new Chart(ctx, config); // Assign the new chart to the variable
+}
+
+
 
 </script>

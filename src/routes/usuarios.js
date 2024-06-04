@@ -15,4 +15,8 @@ router.post("/cadastrarMetricasQuizBandeira", function (req, res) {
     usuarioController.cadastrarMetricasQuizBandeira(req, res);
 });
 
+router.get("/capturarMetricas/:idUsuario", function(req, res) {
+    usuarioController.capturarMetricas(req, res)
+})
+
 module.exports = router;
