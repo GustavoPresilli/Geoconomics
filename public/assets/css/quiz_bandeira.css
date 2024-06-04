@@ -78,7 +78,7 @@ body {
     background-color: #3D3E40;
     border-radius: 2vh;
     width: 50%;
-    height: 70%;
+    height: 75%;
     max-width: 100%;
     max-height: 90%;
 }
@@ -112,11 +112,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 #bandeira img {
     height: 90%;
     width: 45%;
+}
+
+#numQuestao {
+    color: #ffff;
+    z-index: 10;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    font-size: 2vh;
+    font-family: 'Questrial';
 }
 
 .opcoes {

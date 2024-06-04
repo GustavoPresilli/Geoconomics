@@ -11,6 +11,7 @@
 
 <body>
     <button class="botaoSair" onclick="sair()">Sair</button>
+    <p id="numQuestao">AQUIAUQIUAIQ</p>
     <div class="pagina">
         <div class="tituloContainer">
             <h1>Quiz de Bandeiras!</h1>
@@ -145,6 +146,7 @@
     carregarQuestao();
     // Carregar a primeira questão;
 
+    numQuestao.innerHTML = `Questão ${questaoAtual + 1} de ${quizData.length}`
 
     // Função para selecionar a opção
     function selectOption(optionElement, option) {
@@ -164,16 +166,19 @@
         var questaoAtualMostrada = quizData[questaoAtual];
         var respostaSelecionada = selecionado.innerHTML;
 
+        
+        
         if (questaoAtualMostrada.correct === respostaSelecionada) {
             qtdAcertos++
         }
-
-        alert(qtdAcertos);
-
+        
+        console.log(qtdAcertos);
+        
         questaoAtual++;
-
+        
         if (questaoAtual < quizData.length) {
             carregarQuestao();
+            numQuestao.innerHTML = `Questão ${questaoAtual + 1} de ${quizData.length}`
         } else {
             mostrarResultados();
         }
@@ -192,6 +197,5 @@
     function sair() {
         window.location = "curiosidade.html"
     }
-
 
 </script>
