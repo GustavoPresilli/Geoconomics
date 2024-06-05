@@ -33,4 +33,17 @@ CREATE TABLE Metricas (
 INSERT INTO Quiz VALUES (DEFAULT, 'Quiz de Bandeiras', 'Quiz aparecendo uma bandeira e quatro opções de seleção'),
 						(DEFAULT, 'Quiz de Capitais', 'Quiz aparecendo uma capital e quatro opções de seleção');
 
-SELECT * FROM Metricas;
+CREATE VIEW faixaEtaria AS
+SELECT '15-29' AS faixa, COUNT(idUsuario) AS quantidade
+FROM Usuario 
+WHERE TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) >= 15 AND TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) < 30
+UNION ALL
+SELECT '30-44' AS faixa, COUNT(idUsuario) AS quantidade
+FROM Usuario 
+WHERE TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) >= 30 AND TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) < 45
+UNION ALL
+SELECT '45-60' AS faixa, COUNT(idUsuario) AS quantidade
+FROM Usuario 
+WHERE TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) >= 45 AND TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) <= 60;
+
+SELECT * FROM faixaEtaria;

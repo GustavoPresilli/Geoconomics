@@ -203,3 +203,53 @@ function capturarPorcAcertos() {
 }
 
 capturarPorcAcertos();
+
+function capturarQuantidadeFaixaEtaria() {
+    fetch(`/usuarios/quantidadeFaixaEtaria`, {
+        method: "GET",
+    })
+        .then(function (resposta) {
+            resposta.json().then((quantidade) => {
+                alert(quantidade[0].quantidade);
+                alert(quantidade[1].quantidade);
+                alert(quantidade[2].quantidade);
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+capturarQuantidadeFaixaEtaria()
+
+function capturarRegioes() {
+    fetch(`/usuarios/quantidadeRegiao`, {
+        method: "GET",
+    })
+        .then(function (resposta) {
+            resposta.json().then((regiao) => {
+
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+capturarRegioes()
+
+function capturarGenero() {
+    fetch(`/usuarios/quantidadeGenero`, {
+        method: "GET",
+    })
+        .then(function (resposta) {
+            resposta.json().then((genero) => {
+
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+capturarGenero()

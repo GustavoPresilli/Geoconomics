@@ -189,6 +189,53 @@ function capturarPorcAcertos(req, res) {
     }
 }
 
+function quantidadeFaixaEtaria(req, res) {
+    usuarioModel.quantidadeFaixaEtaria().then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        }
+        else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as métricas: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function quantidadeRegiao(req, res) {
+    usuarioModel.quantidadeRegiao().then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        }
+        else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as métricas: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function quantidadeGenero(req, res) {
+    usuarioModel.quantidadeGenero().then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        }
+        else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as métricas: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 
 module.exports = {
     autenticar,
@@ -197,5 +244,8 @@ module.exports = {
     cadastrarMetricasQuizPais,
     capturarMetricasBandeira,
     capturarMetricasCapital,
-    capturarPorcAcertos
+    capturarPorcAcertos,
+    quantidadeFaixaEtaria,
+    quantidadeRegiao,
+    quantidadeGenero
 };

@@ -31,5 +31,16 @@ router.get("/capturarPorcAcertos/:idUsuario", function(req, res) {
     usuarioController.capturarPorcAcertos(req, res)
 });
 
+router.get("/quantidadeFaixaEtaria", function(req, res) {
+    usuarioController.quantidadeFaixaEtaria(req, res)
+});
+
+router.get("/quantidadeRegiao", function(req, res) {
+    usuarioController.quantidadeRegiao(req, res)
+});
+
+router.get("/quantidadeGenero", function(req, res) {
+    usuarioController.quantidadeGenero(req, res)
+});
 
 module.exports = router;

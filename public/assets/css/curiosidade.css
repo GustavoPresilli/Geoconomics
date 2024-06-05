@@ -106,7 +106,6 @@ body {
     height: 80%;
 }
 
-
 .header .container span {
     font-family: 'OpenSans';
     text-decoration: none;
@@ -625,5 +624,30 @@ body {
 }
 
 .caixaEstatisticasGerais .container {
-    height: 100%;
+    width: 90%;
+    height: 50%;
+    /* border: 2px solid red; */
+    align-items: center;
+    justify-content: space-around;
+}
+
+.caixaFaixaEtaria {
+    width: 38%;
+    height: 90%;
+    background-color: #18191A;
+    border-radius: 2vh;
+}
+
+.caixaRegiao {
+    width: 38%;
+    height: 90%;
+    background-color: #18191A;
+    border-radius: 2vh;
+}
+
+.caixaGenero {
+    width: 38%;
+    height: 90%;
+    background-color: #18191A;
+    border-radius: 2vh;
 }

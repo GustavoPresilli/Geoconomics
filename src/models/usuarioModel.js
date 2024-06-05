@@ -57,6 +57,34 @@ function capturarPorcAcertos(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function quantidadeFaixaEtaria() {
+    var instrucaoSql =
+        `SELECT * FROM faixaEtaria;`;
+
+    return database.executar(instrucaoSql);
+}
+
+function quantidadeRegiao() {
+    var instrucaoSql =
+        `SELECT regiao, COUNT(idUsuario) AS quantidade
+        FROM Usuario
+        GROUP BY regiao;
+        `;
+
+    return database.executar(instrucaoSql);
+}
+
+function quantidadeGenero() {
+    var instrucaoSql =
+        `SELECT genero, COUNT(idUsuario) AS quantidade
+        FROM Usuario
+        GROUP BY genero;;
+        `;
+
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -64,5 +92,8 @@ module.exports = {
     cadastrarMetricasQuizPais,
     capturarMetricasBandeira,
     capturarMetricasCapital,
-    capturarPorcAcertos
+    capturarPorcAcertos,
+    quantidadeFaixaEtaria,
+    quantidadeRegiao,
+    quantidadeGenero
 };
