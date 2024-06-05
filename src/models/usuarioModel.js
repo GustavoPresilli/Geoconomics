@@ -35,9 +35,16 @@ function cadastrarMetricasQuizPais(idUsuario, qtdAcertos, qtdErros) {
     return database.executar(instrucaoSql);
 }
 
-function capturarMetricas(idUsuario) {
+function capturarMetricasBandeira(idUsuario) {
     var instrucaoSql = `
-    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} AND fkQuiz = 1 ORDER BY dtTentativa;`;
+    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} AND fkQuiz = 1 ORDER BY dtTentativa DESC LIMIT 5;`;
+
+    return database.executar(instrucaoSql);
+}
+
+function capturarMetricasCapital(idUsuario) {
+    var instrucaoSql = `
+    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} AND fkQuiz = 2 ORDER BY dtTentativa DESC LIMIT 5;`;
 
     return database.executar(instrucaoSql);
 }
@@ -47,5 +54,6 @@ module.exports = {
     cadastrar,
     cadastrarMetricasQuizBandeira,
     cadastrarMetricasQuizPais,
-    capturarMetricas
+    capturarMetricasBandeira,
+    capturarMetricasCapital
 };

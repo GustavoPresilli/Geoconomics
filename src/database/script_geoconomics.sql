@@ -30,4 +30,7 @@ CREATE TABLE Metricas (
     FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario)
 );
 
-INSERT INTO Quiz VALUES (DEFAULT, 'Quiz de Bandeiras', 'Quiz aparecendo uma bandeira e quatro opções de seleção');
+INSERT INTO Quiz VALUES (DEFAULT, 'Quiz de Bandeiras', 'Quiz aparecendo uma bandeira e quatro opções de seleção'),
+						(DEFAULT, 'Quiz de Capitais', 'Quiz aparecendo uma capital e quatro opções de seleção');
+
+SELECT * FROM Metricas;

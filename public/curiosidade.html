@@ -293,18 +293,19 @@
             <button onclick="quiz_capital()">Quiz de Capitais</button>
         </div>
     </div>
-    <div class="dashBoardQuiz">
+    <div id="resultados" class="dashBoardQuiz">
         <div class="tituloQuiz">
             <h1>Dashboard do seus resultados</h1>
         </div>
         <div class="container">
             <div class="caixaDashBandeira">
-                <canvas id="myChart"></canvas>
+                <span>Tentativas quiz de Bandeira</span>
+                <canvas id="graficoBarraBandeira"></canvas>
             </div>
             <div class="caixaDashCapital">
-
+                <span>Tentativas quiz de Capitais</span>
+                <canvas id="graficoBarraCapital"></canvas>
             </div>
-
         </div>
         <div class="caixaResultadosGerais">
         </div>
@@ -357,27 +358,27 @@
         window.location.href = 'quiz_capital.html';
     }
 
-    var listaLabel = [];
-    var listAcertos = [];
-    var listaErros = [];
+    var listaLabelBandeira = [];
+    var listaAcertosBandeira = [];
+    var listaErrosBandeira = [];
 
-    let myChart; // Declare a variable to hold the chart instance
+    let graficoBarraBandeira;
 
-    function capturarDados() {
-        fetch(`/usuarios/capturarMetricas/${idUsuario}`, {
+    function capturarDadosBandeira() {
+        fetch(`/usuarios/capturarMetricasBandeira/${idUsuario}`, {
             method: "GET",
         })
             .then(function (resposta) {
                 resposta.json().then((metricas) => {
-                    for (var i = 0; i < metricas.length; i++) { // Adjusted the condition
+                    for (var i = metricas.length - 1; i >= 0; i--) {
                         var metricaAtual = metricas[i];
                         var data = new Date(metricaAtual.dtTentativa)
 
-                        listaLabel.push(data.toLocaleString())
-                        listAcertos.push(metricaAtual.qtdAcertos)
-                        listaErros.push(metricaAtual.qtdErros)
+                        listaLabelBandeira.push(data.toLocaleString())
+                        listaAcertosBandeira.push(metricaAtual.qtdAcertos)
+                        listaErrosBandeira.push(metricaAtual.qtdErros)
                     }
-                    plotarGrafico();
+                    plotarGraificoBarraBandeira();
                 });
             })
             .catch(function (resposta) {
@@ -385,28 +386,28 @@
             });
     }
 
-    capturarDados();
+    capturarDadosBandeira();
 
-    function plotarGrafico() {
-        if (myChart) {
-            myChart.destroy(); // Destroy the existing chart if it exists
+    function plotarGraificoBarraBandeira() {
+        if (graficoBarraBandeira) {
+            graficoBarraBandeira.destroy(); // Destroy the existing chart if it exists
         }
 
-        const ctx = document.getElementById('myChart');
+        const ctx = document.getElementById('graficoBarraBandeira');
 
         const data = {
-            labels: listaLabel,
+            labels: listaLabelBandeira,
             datasets: [
                 {
                     label: 'Quantidade de Acertos',
-                    data: listAcertos,
+                    data: listaAcertosBandeira,
                     backgroundColor: 'green',
                     borderColor: 'rgb(255, 199, 132)',
                     borderWidth: 1
                 },
                 {
                     label: 'Quantidade de Erros',
-                    data: listaErros,
+                    data: listaErrosBandeira,
                     backgroundColor: 'red',
                     borderColor: 'rgb(255, 199, 132)',
                     borderWidth: 1
@@ -426,9 +427,80 @@
             },
         };
 
-        myChart = new Chart(ctx, config);
+        graficoBarraBandeira = new Chart(ctx, config);
     }
 
+    var listaLabelCapital = [];
+    var listaAcertosCapital = [];
+    var listaErrosCapital = [];
+
+    let graficoBarraCapital;
+
+    function capturarDadosCapital() {
+        fetch(`/usuarios/capturarMetricasCapital/${idUsuario}`, {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((metricas) => {
+                    for (var i = metricas.length - 1; i >= 0; i--) { // Adjusted the condition
+                        var metricaAtual = metricas[i];
+                        var data = new Date(metricaAtual.dtTentativa)
+
+                        listaLabelCapital.push(data.toLocaleString())
+                        listaAcertosCapital.push(metricaAtual.qtdAcertos)
+                        listaErrosCapital.push(metricaAtual.qtdErros)
+                    }
+                    plotarGraificoBarraCapital();
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    capturarDadosCapital();
+
+    function plotarGraificoBarraCapital() {
+        if (graficoBarraCapital) {
+            graficoBarraCapital.destroy(); // Destroy the existing chart if it exists
+        }
+
+        const ctx = document.getElementById('graficoBarraCapital');
+
+        const data = {
+            labels: listaLabelCapital,
+            datasets: [
+                {
+                    label: 'Quantidade de Acertos',
+                    data: listaAcertosCapital,
+                    backgroundColor: 'green',
+                    borderColor: 'rgb(255, 199, 132)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Quantidade de Erros',
+                    data: listaErrosCapital,
+                    backgroundColor: 'red',
+                    borderColor: 'rgb(255, 199, 132)',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+
+        graficoBarraCapital = new Chart(ctx, config);
+    }
 
 
 </script>

@@ -30,6 +30,7 @@
                 <div class="container">
                     <div id="div_mensagem"></div>
                     <button onclick="reiniciar()">Reiniciar</button>
+                    <button onclick="ir_resultados()">Mostrar Resultados</button>
                 </div>
             </div>
         </div>
@@ -56,7 +57,7 @@
         {
             question: "Qual a capital da <span>Noruega</span> ?",
             options: ["Estocolmo", "Helsing", "Oslo", "Lisboa"],
-            correct: "Olso"
+            correct: "Oslo"
         },
         {
             question: "Qual a capital da <span>Irlanda</span> ?",
@@ -156,12 +157,10 @@
         const selected = document.querySelector('.options li.selected');
         if (selected) {
             selected.classList.remove('selected');
+            selected.id = ""; // Remove o ID do elemento desmarcado
         }
         optionElement.classList.add('selected');
-        optionElement.id = "selecionado"
-
-        const currentQuestion = quizData[questaoAtual];
-
+        optionElement.id = "selecionado";
     }
 
     // Passando para a próxima pergunta aumentando seu contador
@@ -169,7 +168,7 @@
         var questaoAtualMostrada = quizData[questaoAtual];
         var respostaSelecionada = selecionado.innerHTML;
 
-        if (questaoAtualMostrada.correct === respostaSelecionada) {
+        if (questaoAtualMostrada.correct == respostaSelecionada) {
             qtdAcertos++
         } else {
             qtdErros++
@@ -177,8 +176,9 @@
 
         console.log("Acertos " + qtdAcertos);
         console.log("Erros " + qtdErros);
-        questaoAtual++;
+        console.log(questaoAtualMostrada.correct == respostaSelecionada)
 
+        questaoAtual++;
         if (questaoAtual < quizData.length) {
             carregarQuestao();
             numQuestao.innerHTML = `Questão ${questaoAtual + 1} de ${quizData.length}`
@@ -219,7 +219,11 @@
     }
 
     function reiniciar() {
-        window.location = "quiz_bandeiras.html";
+        window.location = "quiz_capital.html";
+    }
+
+    function ir_resultados() {
+        window.location = "curiosidade.html#resultados";
     }
 
     function sair() {

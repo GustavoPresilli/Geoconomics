@@ -19,8 +19,12 @@ router.post("/cadastrarMetricasQuizPais", function (req, res) {
     usuarioController.cadastrarMetricasQuizPais(req, res);
 });
 
-router.get("/capturarMetricas/:idUsuario", function(req, res) {
-    usuarioController.capturarMetricas(req, res)
+router.get("/capturarMetricasBandeira/:idUsuario", function(req, res) {
+    usuarioController.capturarMetricasBandeira(req, res)
+})
+
+router.get("/capturarMetricasCapital/:idUsuario", function(req, res) {
+    usuarioController.capturarMetricasCapital(req, res)
 })
 
 module.exports = router;

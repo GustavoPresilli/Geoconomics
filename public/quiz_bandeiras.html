@@ -30,6 +30,7 @@
                 <div class="container">
                     <div id="div_mensagem"></div>
                     <button onclick="reiniciar()">Reiniciar</button>
+                    <button onclick="ir_resultados()">Mostrar Resultados</button>
                 </div>
             </div>
         </div>
@@ -156,12 +157,10 @@
         const selected = document.querySelector('.options li.selected');
         if (selected) {
             selected.classList.remove('selected');
+            selected.id = ""; // Remove o ID do elemento desmarcado
         }
         optionElement.classList.add('selected');
-        optionElement.id = "selecionado"
-
-        const currentQuestion = quizData[questaoAtual];
-
+        optionElement.id = "selecionado";
     }
 
     // Passando para a próxima pergunta aumentando seu contador
@@ -220,6 +219,10 @@
 
     function reiniciar() {
         window.location = "quiz_bandeiras.html";
+    }
+
+    function ir_resultados() {
+        window.location = "curiosidade.html#resultados";
     }
 
     function sair() {

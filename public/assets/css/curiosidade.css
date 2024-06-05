@@ -28,6 +28,10 @@
     src: url(../fonts/Questrial-Regular.ttf);
 }
 
+* {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -531,22 +535,56 @@ body {
 }
 
 .dashBoardQuiz .container {
-    height: 50%;
-    border: 2px solid red;
+    height: 40%;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
 
 .caixaResultadosGerais {
-    height: 40%;
+    height: 60%;
     margin: auto;
     display: flex;
     width: 80%;
-    border: 2px solid green;
 }
 
-#myChart {
-    max-width: 90%;
-    max-height: 90%;
+.caixaDashBandeira {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.caixaDashBandeira span {
+    color: #ffff;
+    font-size: 2vh;
+    font-family: 'Questrial';
+}
+
+.caixaDashCapital {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.caixaDashCapital span {
+    color: #ffff;
+    font-size: 2vh;
+    font-family: 'Questrial';
+}
+
+
+#graficoBarraBandeira {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+#graficoBarraCapital {
+    max-width: 70%;
+    max-height: 70%;
 }
