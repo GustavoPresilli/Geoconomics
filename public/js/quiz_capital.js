@@ -87,6 +87,7 @@ function carregarQuestao() {
     const currentQuestion = quizData[questaoAtual];
     bandeira.innerHTML = currentQuestion.question;
     opcoesResposta.innerHTML = '';
+    opcoesResposta2.innerHTML = '';
 
     for (var i = 0; i < currentQuestion.options.length; i++) {
         let opcaoAtual = currentQuestion.options[i]

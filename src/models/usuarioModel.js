@@ -37,14 +37,14 @@ function cadastrarMetricasQuizPais(idUsuario, qtdAcertos, qtdErros) {
 
 function capturarMetricasBandeira(idUsuario) {
     var instrucaoSql = `
-    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} AND fkQuiz = 1 ORDER BY dtTentativa DESC LIMIT 5;`;
+    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} AND fkQuiz = 1 ORDER BY dtTentativa DESC LIMIT 3;`;
 
     return database.executar(instrucaoSql);
 }
 
 function capturarMetricasCapital(idUsuario) {
     var instrucaoSql = `
-    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} AND fkQuiz = 2 ORDER BY dtTentativa DESC LIMIT 5;`;
+    SELECT qtdAcertos, qtdErros, dtTentativa FROM Metricas WHERE fkUsuario = ${idUsuario} AND fkQuiz = 2 ORDER BY dtTentativa DESC LIMIT 3;`;
 
     return database.executar(instrucaoSql);
 }

@@ -253,6 +253,7 @@ function capturarQuantidadeFaixaEtaria() {
 capturarQuantidadeFaixaEtaria()
 
 var listaLabelRegiao = [];
+var listaQuantidadeRegiao = [];
 
 function capturarRegioes() {
     fetch(`/usuarios/quantidadeRegiao`, {
@@ -260,7 +261,16 @@ function capturarRegioes() {
     })
         .then(function (resposta) {
             resposta.json().then((regiao) => {
+                for(var i = 0; i < regiao.length; i++){
+                    var regiaoAtual = regiao[i].regiao;
+                    var quantidadeRegiaoAtual = regiao[i].quantidade;
 
+                    listaLabelRegiao.push(regiaoAtual);
+                    listaQuantidadeRegiao.push(quantidadeRegiaoAtual)
+
+                }
+
+                plotarGraificoBarraRegiao()
             });
         })
         .catch(function (resposta) {
@@ -325,7 +335,7 @@ function plotarGraficoTortaFaixaEtaria() {
             'Entre 46 e 60'
         ],
         datasets: [{
-            label: 'Faixa',
+            label: 'Quantidade',
             data: listaQuantidade,
             backgroundColor: [
                 'rgb(255, 99, 132)',
@@ -354,11 +364,12 @@ function plotarGraificoBarraRegiao() {
     const ctx = document.getElementById('graficoBarraRegiao');
 
     const data = {
-        labels: listaLabelCapital,
+        labels: listaLabelRegiao,
         datasets: [
             {
-                data: listaAcertosCapital,
-                backgroundColor: 'green',
+                label: "Quantidade",
+                data: listaQuantidadeRegiao,
+                backgroundColor: 'yellow',
                 borderColor: 'rgb(255, 199, 132)',
                 borderWidth: 1
             }

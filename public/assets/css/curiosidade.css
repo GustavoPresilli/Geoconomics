@@ -635,33 +635,70 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 38%;
     height: 90%;
     background-color: #18191A;
     border-radius: 2vh;
 }
 
-#graficoTortaFaixa {
-    height: 80%;
-    width: 80%;
+.caixaFaixaEtaria h1 {
+    font-family: 'Questrial';
+    font-size: 3.8vh;
+    color: #EAEAEA;
 }
+
+#graficoTortaFaixa {
+    max-height: 75%;
+    width: 80%;
+    margin-bottom: 2%;
+}
+
 
 .caixaRegiao {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 38%;
     height: 90%;
     background-color: #18191A;
     border-radius: 2vh;
 }
 
+.caixaRegiao h1 {
+    font-family: 'Questrial';
+    font-size: 3.8vh;
+    color: #EAEAEA;
+}
+
+#graficoBarraRegiao {
+    max-height: 75%;
+    width: 80%;
+    margin-bottom: 2%;
+}
+
+
+
 .caixaGenero {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 38%;
     height: 90%;
     background-color: #18191A;
     border-radius: 2vh;
+}
+
+.caixaGenero h1 {
+    font-family: 'Questrial';
+    font-size: 3.8vh;
+    color: #EAEAEA;
+}
+
+#graficoTortaGenero {
+    max-height: 75%;
+    width: 80%;
+    margin-bottom: 2%;
 }
