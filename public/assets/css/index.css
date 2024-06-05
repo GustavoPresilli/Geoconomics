@@ -133,36 +133,43 @@ body {
     /* justify-content: space-between; */
 }
 
+.caixaTituloIndex {
+    height: 40%;
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .titulo .container span {
-    margin-left: 18%;
     font-family: 'OpenSans';
     color: #fff;
     display: flex;
     align-items: center;
     font-size: 9vh;
     font-weight: 400;
-    margin-bottom: -5%;
+    margin-left: 10%;
 }
 
 .titulo .container p {
-    margin-top: 5%;
-    margin-left: 35%;
     font-family: 'RopaSans';
     color: #ffff;
     display: flex;
     align-items: center;
-    font-size: 2vh;
+    font-size: 2.2vh;
     font-weight: 400;
+    margin-left: 25%;
 }
 
-.titulo .container img {
+.globoRedes {
     margin-left: 1%;
-    height: 30%;
+    height: 7vh;
 }
 
 .titulo .container button {
     cursor: pointer;
-    margin-left: 25%;
+    margin-left: 15%;
     margin-bottom: 20%;
     width: 50%;
     height: 10%;
@@ -394,6 +401,7 @@ body {
     font-family: 'OpenSansItalic';
     position: absolute;
     bottom: -2.5vh;
+    left: 11vh;
 }
 
 .textoFoto {

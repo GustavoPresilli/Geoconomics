@@ -100,6 +100,12 @@ function carregarQuestao() {
 
         // Usando apend child para definir qual é o pai 
         opcoesResposta.appendChild(opcaoResposta);
+
+        if(i < 2){
+            opcoesResposta.appendChild(opcaoResposta);
+        } else {
+            opcoesResposta2.appendChild(opcaoResposta);
+        }
     }
 
 }

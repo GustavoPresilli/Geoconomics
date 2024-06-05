@@ -87,6 +87,7 @@ function carregarQuestao() {
     const currentQuestion = quizData[questaoAtual];
     bandeira.innerHTML = currentQuestion.question;
     opcoesResposta.innerHTML = '';
+    opcoesResposta2.innerHTML = '';
 
     for (var i = 0; i < currentQuestion.options.length; i++) {
         let opcaoAtual = currentQuestion.options[i]
@@ -96,10 +97,14 @@ function carregarQuestao() {
         opcaoResposta.innerText = opcaoAtual;
 
         // Criando a função da opção selecionada
-        opcaoResposta.onclick = () => selectOption(opcaoResposta, opcaoAtual)
+        opcaoResposta.onclick = () => selectOption(opcaoResposta)
 
-        // Usando apend child para definir qual é o pai 
-        opcoesResposta.appendChild(opcaoResposta);
+        // Usando apend child para definir qual é o pai
+        if(i < 2){
+            opcoesResposta.appendChild(opcaoResposta);
+        } else {
+            opcoesResposta2.appendChild(opcaoResposta);
+        }
     }
 
 }
@@ -111,7 +116,7 @@ carregarQuestao();
 numQuestao.innerHTML = `Questão ${questaoAtual + 1} de ${quizData.length}`
 
 // Função para selecionar a opção
-function selectOption(optionElement, option) {
+function selectOption(optionElement) {
     const selected = document.querySelector('.options li.selected');
     if (selected) {
         selected.classList.remove('selected');
