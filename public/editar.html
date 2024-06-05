@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario - Geoconomics</title>
+    <link rel="stylesheet" href="assets/css/editar_usuario.css">
+    <link rel="shortcut icon" type="image/jpg" href="assets/img/logo_escura_prateada.png" />
+</head>
+
+<body>
+    <div class="pagina">
+        <div class="caixaTituloCadastro">
+            <img class='imagemCasa' onclick="retornar()" src="assets/img/imagem_casa.png">
+            <h1 class="titulo">EDITAR PERFIL</h1>
+        </div>
+        <div class="container">
+            <div class="caixaCadastro">
+                <div class="camposCadastro">
+                    <div class="campo">
+                        <div class="tituloCampo">
+                            <span>Usuario</span>
+                        </div>
+                        <input disabled placeholder="Username" id="input_usuario">
+                    </div>
+                    <div class="doisCampos">
+                        <div class="campoData">
+                            <div class="tituloDataNasc">
+                                <span>Data de nascimento</span>
+                            </div>
+                            <input disabled id="input_dataNascimento" type="date">
+                        </div>
+                        <div class="campoGenero">
+                            <div class="tituloGenero">
+                                <span>Gênero</span>
+                            </div>
+                            <select disabled id="select_genero">
+                                <option selected disabled value="#">Selecione um gênero</option>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                                <option>Prefiro não informar</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <div class="tituloCampo">
+                            <span>E-mail</span>
+                        </div>
+                        <input disabled type="email" placeholder="Seu e-mail" id="input_email">
+                    </div>
+                    <div class="campo">
+                        <div class="tituloCampo">
+                            <span>Senha</span>
+                        </div>
+                        <input disabled type="password" placeholder="Senha" id="input_senha">
+                    </div>
+                    <div class="campo">
+                        <div class="tituloCampo">
+                            <span>Confirme a senha</span>
+                        </div>
+                        <input disabled type="password" placeholder="Confirme a sua senha" id="input_confirmar_senha">
+                    </div>
+                    <div class="campo">
+                        <div class="tituloCampo">
+                            <span>Sua região</span>
+                        </div>
+                        <select disabled id="select_regiao">
+                            <option selected disabled value="#">Selecione uma região</option>
+                            <option>Leste da Ásia</option>
+                            <option>Sudeste da Ásia</option>
+                            <option>Ásia Central</option>
+                            <option>Norte da Ásia</option>
+                            <option>Sudoeste da Ásia</option>
+                            <option>Sul da Ásia</option>
+                            <option>Ásia Ocidental</option>
+                            <option>África Meridional</option>
+                            <option>África Ocidental</option>
+                            <option>África Oriental</option>
+                            <option>África Central</option>
+                            <option>África Central</option>
+                            <option>América do Norte</option>
+                            <option>América Central</option>
+                            <option>América do Sul</option>
+                            <option>Oceania</option>
+                            <option>Antarctica</option>
+                            <option>Europa do Sul</option>
+                            <option>Europa do Ocidental</option>
+                            <option>Europa do Oriental</option>
+                            <option>Europa do Norte</option>
+                        </select>
+                    </div>
+                    <div class="botao">
+                        <button onclick="editar()">Editar Perfil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="js/editar_usuario.js"></script>

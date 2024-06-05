@@ -425,3 +425,7 @@ function plotarGraficoTortaGenero() {
 
     graficoTortaGenero = new Chart(ctx, config);
 }
+
+function editar() {
+    window.location = "editar.html"
+}
