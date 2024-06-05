@@ -86,14 +86,14 @@ function plotarGraificoBarraBandeira() {
                 label: 'Quantidade de Acertos',
                 data: listaAcertosBandeira,
                 backgroundColor: 'green',
-                borderColor: 'rgb(255, 199, 132)',
+                borderColor: '#A4EA4F',
                 borderWidth: 1
             },
             {
                 label: 'Quantidade de Erros',
                 data: listaErrosBandeira,
                 backgroundColor: 'red',
-                borderColor: 'rgb(255, 199, 132)',
+                borderColor: 'white',
                 borderWidth: 1
             }
         ]
@@ -103,9 +103,13 @@ function plotarGraificoBarraBandeira() {
         type: 'bar',
         data: data,
         options: {
+            indexAxis: 'y',
             scales: {
+                x: {
+                    stacked: true
+                },
                 y: {
-                    beginAtZero: true
+                    stacked: true
                 }
             }
         },
@@ -134,7 +138,8 @@ function capturarDadosCapital() {
                     listaAcertosCapital.push(metricaAtual.qtdAcertos)
                     listaErrosCapital.push(metricaAtual.qtdErros)
                 }
-                plotarGraificoBarraCapital();
+
+                plotarGraficoBarraCapital();
             });
         })
         .catch(function (resposta) {
@@ -144,7 +149,7 @@ function capturarDadosCapital() {
 
 capturarDadosCapital();
 
-function plotarGraificoBarraCapital() {
+function plotarGraficoBarraCapital() {
     if (graficoBarraCapital) {
         graficoBarraCapital.destroy(); // Destroy the existing chart if it exists
     }
@@ -158,14 +163,14 @@ function plotarGraificoBarraCapital() {
                 label: 'Quantidade de Acertos',
                 data: listaAcertosCapital,
                 backgroundColor: 'green',
-                borderColor: 'rgb(255, 199, 132)',
+                borderColor: '#A4EA4F',
                 borderWidth: 1
             },
             {
                 label: 'Quantidade de Erros',
                 data: listaErrosCapital,
                 backgroundColor: 'red',
-                borderColor: 'rgb(255, 199, 132)',
+                borderColor: 'white',
                 borderWidth: 1
             }
         ]
@@ -175,9 +180,13 @@ function plotarGraificoBarraCapital() {
         type: 'bar',
         data: data,
         options: {
+            indexAxis: 'y',
             scales: {
+                x: {
+                    stacked: true
+                },
                 y: {
-                    beginAtZero: true
+                    stacked: true
                 }
             }
         },
@@ -192,7 +201,7 @@ function capturarPorcAcertos() {
     })
         .then(function (resposta) {
             resposta.json().then((metricas) => {
-                porc_acerto.innerHTML += ` ${(metricas[0].porcentagem) == null ? "0" : (metricas[0].porcentagem)}%`
+                porc_acerto.innerHTML += ` ${(metricas[0].porcentagem) == null ? "0" : Number((metricas[0].porcentagem)).toFixed(2)}%`
                 numeros_porc.innerHTML = `Total de questões certas: ${metricas[0].qtdAcertosTotais == null ? "0" : metricas[0].qtdAcertosTotais} / ${metricas[0].total == null ? "0" : metricas[0].total}`
                 // AJUDA
             });
@@ -213,9 +222,26 @@ function capturarQuantidadeFaixaEtaria() {
     })
         .then(function (resposta) {
             resposta.json().then((quantidade) => {
-                listaQuantidade.push(quantidade[0].faixa_15_30)
-                listaQuantidade.push(quantidade[0].faixa_31_45)
-                listaQuantidade.push(quantidade[0].faixa_46_60)
+                var cont15_30 = 0;
+                var cont31_45 = 0;
+                var cont46_60 = 0;
+
+                for (var i = 0; i < quantidade.length; i++) {
+                    var idadeAtual = quantidade[i].idade;
+
+                    if (idadeAtual >= 0 && idadeAtual <= 30) {
+                        cont15_30++
+                    } else if (idadeAtual <= 45) {
+                        cont31_45++
+                    } else {
+                        cont46_60++
+                    }
+
+                }
+
+                listaQuantidade.push(cont15_30)
+                listaQuantidade.push(cont31_45)
+                listaQuantidade.push(cont46_60)
                 plotarGraficoTortaFaixaEtaria();
             });
         })
@@ -252,17 +278,26 @@ function capturarGenero() {
     })
         .then(function (resposta) {
             resposta.json().then((genero) => {
-                for (var i = 0; i < genero[0].length; i++) {
-                    var quantidadeAtual = genero[i];
+                var contMasc = 0;
+                var contFem = 0;
+                var contPNI = 0;
 
-                    if (genero[i].genero == "Feminino") {
-                        listaQuantidadeGenero.push(genero[i].quantidade)
-                    } else if (genero[i].genero == "Masculino") {
-                        listaQuantidadeGenero.push(genero[i].quantidade)
+                for (var i = 0; i < genero.length; i++) {
+                    var generoAtual = genero[i].genero;
+
+                    if (generoAtual == "Feminino") {
+                        contFem++
+                    } else if (generoAtual == "Masculino") {
+                        contMasc++
                     } else {
-                        listaQuantidadeGenero.push(genero[i].quantidade)
+                        contPNI++
                     }
+
+
                 }
+                listaQuantidadeGenero.push(contMasc)
+                listaQuantidadeGenero.push(contFem)
+                listaQuantidadeGenero.push(contPNI)
 
                 plotarGraficoTortaGenero()
             });
@@ -311,7 +346,7 @@ function plotarGraficoTortaFaixaEtaria() {
 
 let graficoBarraRegiao;
 
-function plotarGraificoBarraCapital() {
+function plotarGraificoBarraRegiao() {
     if (graficoBarraRegiao) {
         graficoBarraRegiao.destroy(); // Destroy the existing chart if it exists
     }
@@ -358,15 +393,15 @@ function plotarGraficoTortaGenero() {
         labels: [
             'Masculino',
             'Feminino',
-            'Prefiro não  informar'
+            'Prefiro não informar'
         ],
         datasets: [{
             label: 'Faixa',
             data: listaQuantidadeGenero,
             backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'blue',     // Masculino em azul
+                'pink',     // Feminino em rosa
+                'black'     // Prefiro não informar em preto
             ],
             hoverOffset: 4
         }]

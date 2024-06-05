@@ -59,8 +59,7 @@ function capturarPorcAcertos(idUsuario) {
 
 function quantidadeFaixaEtaria() {
     var instrucaoSql =
-        `SELECT * FROM faixaEtaria;`;
-
+        `SELECT TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) AS idade FROM Usuario;`
     return database.executar(instrucaoSql);
 }
 
@@ -76,10 +75,7 @@ function quantidadeRegiao() {
 
 function quantidadeGenero() {
     var instrucaoSql =
-        `SELECT genero, COUNT(idUsuario) AS quantidade
-        FROM Usuario
-        GROUP BY genero;;
-        `;
+        `SELECT genero FROM Usuario`;
 
     return database.executar(instrucaoSql);
 }
