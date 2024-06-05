@@ -216,6 +216,7 @@ function capturarQuantidadeFaixaEtaria() {
                 listaQuantidade.push(quantidade[0].faixa_15_30)
                 listaQuantidade.push(quantidade[0].faixa_31_45)
                 listaQuantidade.push(quantidade[0].faixa_46_60)
+                plotarGraficoTortaFaixaEtaria();
             });
         })
         .catch(function (resposta) {
@@ -225,6 +226,8 @@ function capturarQuantidadeFaixaEtaria() {
 
 capturarQuantidadeFaixaEtaria()
 
+var listaLabelRegiao = [];
+
 function capturarRegioes() {
     fetch(`/usuarios/quantidadeRegiao`, {
         method: "GET",
@@ -232,7 +235,6 @@ function capturarRegioes() {
         .then(function (resposta) {
             resposta.json().then((regiao) => {
 
-                plotarGraficoTortaFaixaEtaria();
             });
         })
         .catch(function (resposta) {
@@ -242,13 +244,27 @@ function capturarRegioes() {
 
 capturarRegioes()
 
+var listaQuantidadeGenero = [];
+
 function capturarGenero() {
     fetch(`/usuarios/quantidadeGenero`, {
         method: "GET",
     })
         .then(function (resposta) {
             resposta.json().then((genero) => {
+                for (var i = 0; i < genero[0].length; i++) {
+                    var quantidadeAtual = genero[i];
 
+                    if (genero[i].genero == "Feminino") {
+                        listaQuantidadeGenero.push(genero[i].quantidade)
+                    } else if (genero[i].genero == "Masculino") {
+                        listaQuantidadeGenero.push(genero[i].quantidade)
+                    } else {
+                        listaQuantidadeGenero.push(genero[i].quantidade)
+                    }
+                }
+
+                plotarGraficoTortaGenero()
             });
         })
         .catch(function (resposta) {
@@ -291,4 +307,75 @@ function plotarGraficoTortaFaixaEtaria() {
     };
 
     graficoTortaFaixa = new Chart(ctx, config);
+}
+
+let graficoBarraRegiao;
+
+function plotarGraificoBarraCapital() {
+    if (graficoBarraRegiao) {
+        graficoBarraRegiao.destroy(); // Destroy the existing chart if it exists
+    }
+
+    const ctx = document.getElementById('graficoBarraRegiao');
+
+    const data = {
+        labels: listaLabelCapital,
+        datasets: [
+            {
+                data: listaAcertosCapital,
+                backgroundColor: 'green',
+                borderColor: 'rgb(255, 199, 132)',
+                borderWidth: 1
+            }
+        ]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
+
+    graficoBarraRegiao = new Chart(ctx, config);
+}
+
+let graficoTortaGenero;
+
+function plotarGraficoTortaGenero() {
+    if (graficoTortaGenero) {
+        graficoTortaGenero.destroy(); // Destroy the existing chart if it exists
+    }
+
+    const ctx = document.getElementById('graficoTortaGenero');
+
+    const data = {
+        labels: [
+            'Masculino',
+            'Feminino',
+            'Prefiro não  informar'
+        ],
+        datasets: [{
+            label: 'Faixa',
+            data: listaQuantidadeGenero,
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config = {
+        type: 'pie',
+        data: data,
+    };
+
+    graficoTortaGenero = new Chart(ctx, config);
 }
