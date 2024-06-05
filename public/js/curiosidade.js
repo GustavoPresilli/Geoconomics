@@ -192,8 +192,8 @@ function capturarPorcAcertos() {
     })
         .then(function (resposta) {
             resposta.json().then((metricas) => {
-                porc_acerto.innerHTML += ` ${(metricas[0].porcentagem)}%`
-                numeros_porc.innerHTML = `Total de questões certas: ${metricas[0].qtdAcertosTotais} / ${metricas[0].total}`
+                porc_acerto.innerHTML += ` ${(metricas[0].porcentagem) == null ? "0" : (metricas[0].porcentagem)}%`
+                numeros_porc.innerHTML = `Total de questões certas: ${metricas[0].qtdAcertosTotais == null ? "0" : metricas[0].qtdAcertosTotais} / ${metricas[0].total == null ? "0" : metricas[0].total}`
                 // AJUDA
             });
         })

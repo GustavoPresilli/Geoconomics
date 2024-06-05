@@ -57,8 +57,9 @@ body {
     z-index: 10;
     height: 12%;
     width: 100%;
-    background-color: #022F37;
+    background-color: #18191A;
     position: fixed;
+    border-bottom: 0.4vh solid #EAEAEA;
 }
 
 .header .container {
@@ -594,7 +595,6 @@ body {
     font-family: 'Questrial';
 }
 
-
 #graficoBarraBandeira {
     max-width: 70%;
     max-height: 70%;
@@ -603,4 +603,27 @@ body {
 #graficoBarraCapital {
     max-width: 70%;
     max-height: 70%;
+}
+
+.curiosidadesGerais {
+    width: 100%;
+    height: 100vh;
+    background-color: #EAEAEA;
+}
+
+.curiosidadesGerais .tituloQuiz {
+    border-bottom: #18191A 2px solid;
+}
+
+.curiosidadesGerais .tituloQuiz h1 {
+    color: #18191A;
+}
+
+.caixaEstatisticasGerais {
+    height: 80%;
+    width: 100%;
+}
+
+.caixaEstatisticasGerais .container {
+    height: 100%;
 }
