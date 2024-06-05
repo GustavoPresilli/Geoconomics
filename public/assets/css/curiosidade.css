@@ -632,13 +632,24 @@ body {
 }
 
 .caixaFaixaEtaria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 38%;
     height: 90%;
     background-color: #18191A;
     border-radius: 2vh;
 }
 
+#graficoTortaFaixa {
+    height: 80%;
+    width: 80%;
+}
+
 .caixaRegiao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 38%;
     height: 90%;
     background-color: #18191A;
@@ -646,6 +657,9 @@ body {
 }
 
 .caixaGenero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 38%;
     height: 90%;
     background-color: #18191A;

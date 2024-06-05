@@ -204,15 +204,18 @@ function capturarPorcAcertos() {
 
 capturarPorcAcertos();
 
+var listaLabelFaixa = []
+var listaQuantidade = [];
+
 function capturarQuantidadeFaixaEtaria() {
     fetch(`/usuarios/quantidadeFaixaEtaria`, {
         method: "GET",
     })
         .then(function (resposta) {
             resposta.json().then((quantidade) => {
-                alert(quantidade[0].quantidade);
-                alert(quantidade[1].quantidade);
-                alert(quantidade[2].quantidade);
+                listaQuantidade.push(quantidade[0].faixa_15_30)
+                listaQuantidade.push(quantidade[0].faixa_31_45)
+                listaQuantidade.push(quantidade[0].faixa_46_60)
             });
         })
         .catch(function (resposta) {
@@ -229,6 +232,7 @@ function capturarRegioes() {
         .then(function (resposta) {
             resposta.json().then((regiao) => {
 
+                plotarGraficoTortaFaixaEtaria();
             });
         })
         .catch(function (resposta) {
@@ -252,4 +256,39 @@ function capturarGenero() {
         });
 }
 
-capturarGenero()
+capturarGenero();
+
+let graficoTortaFaixa;
+
+function plotarGraficoTortaFaixaEtaria() {
+    if (graficoTortaFaixa) {
+        graficoTortaFaixa.destroy(); // Destroy the existing chart if it exists
+    }
+
+    const ctx = document.getElementById('graficoTortaFaixa');
+
+    const data = {
+        labels: [
+            'Entre 15 e 30',
+            'Entre 31 e 45',
+            'Entre 46 e 60'
+        ],
+        datasets: [{
+            label: 'Faixa',
+            data: listaQuantidade,
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config = {
+        type: 'pie',
+        data: data,
+    };
+
+    graficoTortaFaixa = new Chart(ctx, config);
+}
