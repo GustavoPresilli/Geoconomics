@@ -308,6 +308,9 @@
             </div>
         </div>
         <div class="caixaResultadosGerais">
+            <h1>Sua porcentagem e acerto é de</h1>
+            <h1 id="porc_acerto"></h1>
+            <p id="numeros_porc"></p>
         </div>
     </div>
 </body>
@@ -502,5 +505,21 @@
         graficoBarraCapital = new Chart(ctx, config);
     }
 
+    function capturarPorcAcertos() {
+        fetch(`/usuarios/capturarPorcAcertos/${idUsuario}`, {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((metricas) => {
+                    porc_acerto.innerHTML += ` ${(metricas[0].porcentagem)}%`
+                    numeros_porc.innerHTML = `Total de questões certas: ${metricas[0].qtdAcertosTotais} / ${metricas[0].total}`
+                    // AJUDA
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
 
+    capturarPorcAcertos();
 </script>

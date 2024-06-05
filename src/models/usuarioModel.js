@@ -49,11 +49,20 @@ function capturarMetricasCapital(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function capturarPorcAcertos(idUsuario) {
+    var instrucaoSql = `
+    
+    SELECT SUM(qtdAcertos) + SUM(qtdErros) AS total , SUM(qtdAcertos) AS qtdAcertosTotais, (SUM(qtdAcertos)/  (SUM(qtdAcertos) + SUM(qtdErros))) * 100 AS porcentagem FROM Metricas WHERE fkUsuario = ${idUsuario} ORDER BY dtTentativa DESC LIMIT 10;`;
+
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     cadastrarMetricasQuizBandeira,
     cadastrarMetricasQuizPais,
     capturarMetricasBandeira,
-    capturarMetricasCapital
+    capturarMetricasCapital,
+    capturarPorcAcertos
 };

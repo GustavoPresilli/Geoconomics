@@ -21,10 +21,15 @@ router.post("/cadastrarMetricasQuizPais", function (req, res) {
 
 router.get("/capturarMetricasBandeira/:idUsuario", function(req, res) {
     usuarioController.capturarMetricasBandeira(req, res)
-})
+});
 
 router.get("/capturarMetricasCapital/:idUsuario", function(req, res) {
     usuarioController.capturarMetricasCapital(req, res)
-})
+});
+
+router.get("/capturarPorcAcertos/:idUsuario", function(req, res) {
+    usuarioController.capturarPorcAcertos(req, res)
+});
+
 
 module.exports = router;

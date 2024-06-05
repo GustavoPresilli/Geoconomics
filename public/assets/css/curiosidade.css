@@ -546,6 +546,22 @@ body {
     margin: auto;
     display: flex;
     width: 80%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.caixaResultadosGerais h1 {
+    color: #ffff;
+    font-family: 'MontSerrat';
+    font-size: 4vh;
+}
+
+
+.caixaResultadosGerais p {
+    color: #ffff;
+    font-family: 'MontSerrat';
+    font-size: 2vh;
 }
 
 .caixaDashBandeira {
