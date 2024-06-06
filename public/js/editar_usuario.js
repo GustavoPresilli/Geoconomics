@@ -21,6 +21,10 @@ function capturarDadosUsuario() {
                 } else {
                     input_dataNascimento.value = `${ano}-${mes}-${dia}`;
                 }
+
+                if(dadosUsuario[0].fotoPerfil != ""){
+                    input_urlImagem.value = dadosUsuario[0].fotoPerfil;
+                }
                 
                 input_usuario.value = dadosUsuario[0].nome;
                 select_genero.value = dadosUsuario[0].genero;

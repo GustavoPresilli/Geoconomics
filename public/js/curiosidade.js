@@ -40,13 +40,17 @@ function buscarDadosUsuario() {
                 idade_usuario.innerHTML += ` ${dados[0].idade}`;
                 regiao_usuario.innerHTML += ` ${dados[0].regiao}`;
                 nome_usuario.innerHTML += ` ${dados[0].nome}`
-
+                if(dados[0].fotoPerfil != "") {
+                    imagemUsuario.src = dados[0].fotoPerfil;
+                }
             });
         })
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
 }
+
+buscarDadosUsuario()
 
 function quiz_bandeira() {
     window.location.href = 'quiz_bandeiras.html';
