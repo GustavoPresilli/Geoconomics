@@ -103,8 +103,8 @@ body {
 
 .usuario img {
     cursor: pointer;
-    height: 80%;
-    width: 20%;
+    height: 60%;
+    width: 15%;
     border-radius: 50%;
     border: 0.3vh solid #ffff;
 }
