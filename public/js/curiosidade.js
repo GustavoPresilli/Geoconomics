@@ -30,9 +30,23 @@ var regiao = sessionStorage.REGIAO_USUARIO;
 var nome = sessionStorage.NOME_USUARIO;
 var idUsuario = sessionStorage.ID_USUARIO;
 
-idade_usuario.innerHTML += ` ${idade}`;
-regiao_usuario.innerHTML += ` ${regiao}`;
-nome_usuario.innerHTML += ` ${nome}`
+
+function buscarDadosUsuario() {
+    fetch(`/usuarios/buscarDadosUsuario/${idUsuario}`, {
+        method: "GET",
+    })
+        .then(function (resposta) {
+            resposta.json().then((dados) => {
+                idade_usuario.innerHTML += ` ${dados[0].idade}`;
+                regiao_usuario.innerHTML += ` ${dados[0].regiao}`;
+                nome_usuario.innerHTML += ` ${dados[0].nome}`
+
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
 
 function quiz_bandeira() {
     window.location.href = 'quiz_bandeiras.html';
@@ -261,7 +275,7 @@ function capturarRegioes() {
     })
         .then(function (resposta) {
             resposta.json().then((regiao) => {
-                for(var i = 0; i < regiao.length; i++){
+                for (var i = 0; i < regiao.length; i++) {
                     var regiaoAtual = regiao[i].regiao;
                     var quantidadeRegiaoAtual = regiao[i].quantidade;
 
@@ -338,9 +352,9 @@ function plotarGraficoTortaFaixaEtaria() {
             label: 'Quantidade',
             data: listaQuantidade,
             backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                '#009B3A',
+                '#F46E16',
+                '#EF391F'
             ],
             hoverOffset: 4
         }]
@@ -370,7 +384,7 @@ function plotarGraificoBarraRegiao() {
                 label: "Quantidade",
                 data: listaQuantidadeRegiao,
                 backgroundColor: 'yellow',
-                borderColor: 'rgb(255, 199, 132)',
+                borderColor: 'white',
                 borderWidth: 1
             }
         ]
@@ -410,9 +424,9 @@ function plotarGraficoTortaGenero() {
             label: 'Faixa',
             data: listaQuantidadeGenero,
             backgroundColor: [
-                'blue',     // Masculino em azul
-                'pink',     // Feminino em rosa
-                'black'     // Prefiro não informar em preto
+                '#002776',     // Masculino em azul
+                '#FF607F',     // Feminino em rosa
+                '#D6D2D2'     // Prefiro não informar em preto
             ],
             hoverOffset: 4
         }]

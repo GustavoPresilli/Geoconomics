@@ -9,10 +9,10 @@
     <link rel="shortcut icon" type="image/jpg" href="assets/img/logo_escura_prateada.png" />
 </head>
 
-<body>
+<body onload="capturarDadosUsuario()">
+    <button class="botaoVoltar" onclick="retornar()">Voltar</button>
     <div class="pagina">
         <div class="caixaTituloCadastro">
-            <img class='imagemCasa' onclick="retornar()" src="assets/img/imagem_casa.png">
             <h1 class="titulo">EDITAR PERFIL</h1>
         </div>
         <div class="container">
@@ -53,13 +53,13 @@
                         <div class="tituloCampo">
                             <span>Senha</span>
                         </div>
-                        <input disabled type="password" placeholder="Senha" id="input_senha">
+                        <input disabled type="text" placeholder="Senha" id="input_senha">
                     </div>
                     <div class="campo">
                         <div class="tituloCampo">
-                            <span>Confirme a senha</span>
+                            <span>Imagem do perfil</span>
                         </div>
-                        <input disabled type="password" placeholder="Confirme a sua senha" id="input_confirmar_senha">
+                        <input disabled type="text" placeholder="URL da sua" id="input_urlImagem">
                     </div>
                     <div class="campo">
                         <div class="tituloCampo">
@@ -91,7 +91,7 @@
                         </select>
                     </div>
                     <div class="botao">
-                        <button onclick="editar()">Editar Perfil</button>
+                        <button id="btn_paginaEditar" onclick="editar()">Editar Perfil</button>
                     </div>
                 </div>
             </div>

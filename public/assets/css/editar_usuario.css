@@ -69,17 +69,30 @@ body {
     position: relative;
 }
 
-.imagemCasa {
-    z-index: 1;
+.botaoVoltar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 1px;
     cursor: pointer;
-    top: 20%;
-    left: 4vh;
-    /* border: 2px solid red; */
-    filter: invert(1);
-    width: 8vh;
-    transition: 1s;
+    transition: 0.5s;
     position: absolute;
+    width: 10vh;
+    height: 5vh;
+    font-size: 2vh;
+    font-family: 'Questrial';
+    bottom: 2%;
+    left: 1%;
 }
+
+.botaoVoltar:hover {
+    transition: 0.5s;
+    background-color: #004a98;
+}
+
 
 .imagemCasa:hover {
     filter: invert(0.5) grayscale(0%) brightness(110%);
@@ -88,21 +101,10 @@ body {
 
 .pagina .container {
     height: 88%;
-    width: 40%;
+    width: 50%;
     background-color: #3D3E40;
     border-radius: 2vh;
     align-items: flex-end;
-}
-
-.caixaRedLogin {
-    background-color: #94B6BD;
-    height: 100%;
-    width: 40%;
-    border-radius: 2vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
 }
 
 .caixaCadastro {
@@ -113,7 +115,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 
 .camposCadastro {
     width: 80%;
@@ -134,8 +135,8 @@ body {
 }
 
 .campo select {
-    width: 63%;
-    height: 55%;
+    width: 73%;
+    height: 58%;
     border-radius: 1vh;
     font-family: 'Questrial';
     border: none;
@@ -173,24 +174,24 @@ body {
 }
 
 .tituloDataNasc {
-    width: 100%;
+    width: 72%;
     height: 25%;
     display: flex;
     align-items: center;
     color: #FFFF;
     font-family: 'RopaSans';
     font-size: 2.4vh;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .campoData input {
-    width: 54%;
-    height: 40%;
+    width: 68%;
+    height: 55%;
     border-radius: 1vh;
     border: none;
     background-color: #DDDDDD;
     padding-left: 3%;
-    font-size: 2vh;
+    font-size: 2.5vh;
     font-family: 'Questrial';
 }
 
@@ -216,8 +217,8 @@ body {
 }
 
 .campoGenero select {
-    width: 72%;
-    height: 40%;
+    width: 82%;
+    height: 55%;
     border-radius: 1vh;
     border: none;
     background-color: #DDDDDD;
@@ -237,7 +238,7 @@ body {
 
 .campo input {
     font-family: 'Questrial';
-    width: 60%;
+    width: 70%;
     height: 55%;
     border-radius: 1vh;
     border: none;
@@ -260,7 +261,7 @@ body {
 }
 
 .tituloCampo {
-    width: 60%;
+    width: 70%;
     /* border: 2px solid red; */
     height: 25%;
     display: flex;

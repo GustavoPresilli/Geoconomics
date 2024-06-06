@@ -23,6 +23,10 @@ router.get("/capturarMetricasBandeira/:idUsuario", function(req, res) {
     usuarioController.capturarMetricasBandeira(req, res)
 });
 
+router.get("/buscarDadosUsuario/:idUsuario", function(req, res) {
+    usuarioController.buscarDadosUsuario(req, res)
+});
+
 router.get("/capturarMetricasCapital/:idUsuario", function(req, res) {
     usuarioController.capturarMetricasCapital(req, res)
 });
@@ -41,6 +45,14 @@ router.get("/quantidadeRegiao", function(req, res) {
 
 router.get("/quantidadeGenero", function(req, res) {
     usuarioController.quantidadeGenero(req, res)
+});
+
+router.get("/capturarDadosUsuario/:idUsuario", function(req, res) {
+    usuarioController.capturarDadosUsuario(req, res)
+});
+
+router.put("/editarDadosUsuario/:idUsuario", function(req, res) {
+    usuarioController.editarDadosUsuario(req, res)
 });
 
 module.exports = router;

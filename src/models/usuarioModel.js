@@ -80,6 +80,31 @@ function quantidadeGenero() {
     return database.executar(instrucaoSql);
 }
 
+function capturarDadosUsuario(idUsuario) {
+    var instrucaoSql = `
+    SELECT nome, dtNasc, genero, email, regiao, senha, fotoPerfil FROM Usuario WHERE idUsuario = ${idUsuario};`;
+
+    return database.executar(instrucaoSql);
+}
+
+function editarDadosUsuario(idUsuario, nome, dtNasc, email, senha, urlImagem, genero, regiao) {
+    var instrucaoSql = `
+    UPDATE Usuario SET nome = "${nome}" , dtNasc = "${dtNasc}" 
+    , genero = "${genero}" , email = "${email}" , regiao = "${regiao}" 
+    , senha = "${senha}" , fotoPerfil = "${urlImagem}" WHERE idUsuario = ${idUsuario};
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
+function buscarDadosUsuario(idUsuario) {
+    var instrucaoSql = 
+    `
+    SELECT nome, TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()) AS idade, genero, email, regiao, senha, fotoPerfil  FROM Usuario WHERE idUsuario = ${idUsuario};
+    `;
+
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     autenticar,
@@ -91,5 +116,8 @@ module.exports = {
     capturarPorcAcertos,
     quantidadeFaixaEtaria,
     quantidadeRegiao,
-    quantidadeGenero
+    quantidadeGenero,
+    capturarDadosUsuario,
+    editarDadosUsuario,
+    buscarDadosUsuario
 };
