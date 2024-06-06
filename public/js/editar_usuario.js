@@ -12,20 +12,20 @@ function capturarDadosUsuario() {
                 var dia = dataAtual.getDate();
                 var mes = dataAtual.getMonth() + 1;
 
-                if (mes < 10) {
+                if (mes < 10 && dia < 10) {
+                    input_dataNascimento.value = `${ano}-0${mes}-0${dia}`;
+                } else if (mes < 10) {
                     input_dataNascimento.value = `${ano}-0${mes}-${dia}`;
                 } else if (dia < 10) {
                     input_dataNascimento.value = `${ano}-${mes}-0${dia}`;
-                } else if (dia < 10 && mes < 10) {
-                    input_dataNascimento.value = `${ano}-0${mes}-0${dia}`;
                 } else {
                     input_dataNascimento.value = `${ano}-${mes}-${dia}`;
                 }
 
-                if(dadosUsuario[0].fotoPerfil != ""){
+                if (dadosUsuario[0].fotoPerfil != "") {
                     input_urlImagem.value = dadosUsuario[0].fotoPerfil;
                 }
-                
+
                 input_usuario.value = dadosUsuario[0].nome;
                 select_genero.value = dadosUsuario[0].genero;
                 input_email.value = dadosUsuario[0].email;

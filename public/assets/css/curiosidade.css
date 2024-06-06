@@ -103,10 +103,10 @@ body {
 
 .usuario img {
     cursor: pointer;
-    height: 60%;
+    height: 70%;
     width: 15%;
     border-radius: 50%;
-    border: 0.3vh solid #ffff;
+    border: 0.15vh solid #ffff;
 }
 
 .header .container span {

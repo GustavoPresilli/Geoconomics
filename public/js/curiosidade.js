@@ -40,7 +40,7 @@ function buscarDadosUsuario() {
                 idade_usuario.innerHTML += ` ${dados[0].idade}`;
                 regiao_usuario.innerHTML += ` ${dados[0].regiao}`;
                 nome_usuario.innerHTML += ` ${dados[0].nome}`
-                if(dados[0].fotoPerfil != "") {
+                if(dados[0].fotoPerfil != null) {
                     imagemUsuario.src = dados[0].fotoPerfil;
                 }
             });
@@ -425,7 +425,7 @@ function plotarGraficoTortaGenero() {
             'Prefiro não informar'
         ],
         datasets: [{
-            label: 'Faixa',
+            label: 'Quantidade',
             data: listaQuantidadeGenero,
             backgroundColor: [
                 '#002776',     // Masculino em azul
